@@ -1,0 +1,150 @@
+#see for java tunning https://docs.oracle.com/cd/E15523_01/web.1111/e13814/jvm_tuning.htm#PERFM161
+version: '3.8'
+services:
+  #Docker Compose creates a virtual network between the services and the DNS name 
+  #used for each service is its name: that’s why it’s possible to use eureka-discovery as the hostname.
+  registry-discovery:
+    container_name: id-eureka
+    image: patitaspetshop/microservice-docker-eurekaserver:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+
+  ##########################################################################
+  #configuration service
+  ##########################################################################
+  configuration:
+    container_name: id-config
+    image: patitaspetshop/microservice-docker-configserver:0.0.1-SNAPSHOT
+    volumes:
+      #this it use because we are using a local github repository /host/path:/container/path use ./ for relative path
+      - ./config-server-repo:/tmp/config-server-repo
+      #All projets will have a variable value  DEUREKA_SERVER this tell where find a registry-discovery server 
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+        -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+        -DLOCAL_REPOSITORY=https://github.com/Renzo-Espinola/config-server-repo.git
+        #-DLOCAL_REPOSITORY=/tmp/config-server-repo
+      #-Dspring.cloud.config.server.native.searchLocations=/var/config-data
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8888:8888
+
+  ##########################################################################
+  #administration service
+  ##########################################################################
+  administration:
+    container_name: id-admin
+    image: patitaspetshop/microservice-docker-adminserver:0.0.1-SNAPSHOT
+    #All projets will have a variable value  DEUREKA_SERVER this tell where find a registry-discovery server
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+        -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+      #-Dspring.cloud.config.server.native.searchLocations=/var/config-data
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8762:8762
+
+  ##########################################################################
+  #product service
+  ##########################################################################
+  product-catalog:
+    container_name: bd-product-catalog
+    image: patitaspetshop/microservice-docker-product:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+        -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+        -Dspring.profiles.active=production
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8083:8083
+    restart: always
+
+  ##########################################################################
+  #customer service
+  ##########################################################################
+  customer:
+    container_name: bd-customer
+    image: patitaspetshop/microservice-docker-customer:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+        -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+        -Dspring.profiles.active=production
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8081:8081
+    restart: always
+
+  ##########################################################################
+  #transaction service
+  ##########################################################################
+  transactions:
+    container_name: bd-transactions
+    image: patitaspetshop/microservice-docker-transaction:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256M
+        -Xmx256M
+        -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+        -Dspring.profiles.active=production
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8082:8082
+    restart: always
+
+  ##########################################################################
+  #database service
+  ##########################################################################
+  postgres_db:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - 3432:5432
+    volumes:
+      #allow *.sql, *.sql.gz, or *.sh and is execute only if data directory is empty
+      - ./dbfiles:/docker-entrypoint-initdb.d/init-user-db.sh
+      - /var/lib/postgres_data:/var/lib/postgresql/data
+    environment:
+      #default postgres super user
+      POSTGRES_USER: postgres
+      #default passwor for postgres super user, it is only the required envvar for postgres image
+      POSTGRES_PASSWORD: qwerty
+      #main database if name is not specific thname of super user is use
+      POSTGRES_DB: postgres
+
+  ##########################################################################
+  #pgadmin service
+  ##########################################################################
+  pgadmin4:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "qwerty"
+    ports:
+      - 80:80
+    depends_on:
+      - postgres_db      
+      
+
+
+    
