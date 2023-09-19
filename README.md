@@ -30,8 +30,7 @@
 
 # BACKEND
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/12e890a7-b1ff-4677-bbcc-1a94bd37ae84)
-
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7862184c-c060-4eac-999b-ad2ae4fc8147)
 
 # Infraestructura de Microservicios con Spring Boot 3 , Java 17 y Docker
 
@@ -112,4 +111,3 @@ Donde se iran iniciando cada microservicio en el orden determinado para que prim
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el repositorio remoto de Spring Config para garantizar su correcto funcionamiento.
 
 ¡Disfruta utilizando esta infraestructura de microservicios con Spring Boot 3, Java 17 y DOCKER!
-!
