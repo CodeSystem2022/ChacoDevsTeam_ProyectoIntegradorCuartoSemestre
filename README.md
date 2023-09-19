@@ -33,9 +33,9 @@
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/12e890a7-b1ff-4677-bbcc-1a94bd37ae84)
 
 
-# Infraestructura de Microservicios con Spring Boot 3 , Java 20 y Docker
+# Infraestructura de Microservicios con Spring Boot 3 , Java 17 y Docker
 
-Este repositorio contiene una infraestructura de microservicios desarrollada con Spring Boot 3 y Java 20, que se divide en dos dominios principales: Infraestructura y Negocio. Aquí encontrarás información sobre cada uno de estos componentes y cómo se relacionan entre sí.
+Este repositorio contiene una infraestructura de microservicios desarrollada con Spring Boot 3 y Java 17, que se divide en dos dominios principales: Infraestructura y Negocio. Aquí encontrarás información sobre cada uno de estos componentes y cómo se relacionan entre sí.
 
 ## Infraestructura
 
@@ -111,4 +111,5 @@ Donde se iran iniciando cada microservicio en el orden determinado para que prim
 
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el repositorio remoto de Spring Config para garantizar su correcto funcionamiento.
 
-¡Disfruta utilizando esta infraestructura de microservicios con Spring Boot 3 y Java 20!
+¡Disfruta utilizando esta infraestructura de microservicios con Spring Boot 3, Java 17 y DOCKER!
+!
