@@ -36,7 +36,7 @@
 
 # Infraestructura de Microservicios con Spring Boot 3 , Java 17 y Docker
 
-Este repositorio contiene una infraestructura de microservicios desarrollada con Spring Boot 3 y Java 20, que se divide en dos dominios principales: Infraestructura y Negocio. Aquí encontrarás información sobre cada uno de estos componentes y cómo se relacionan entre sí.
+Este repositorio contiene una infraestructura de microservicios desarrollada con Spring Boot 3 y Java 17, que se divide en dos dominios principales: Infraestructura y Negocio. Aquí encontrarás información sobre cada uno de estos componentes y cómo se relacionan entre sí.
 
 ## Infraestructura
 
