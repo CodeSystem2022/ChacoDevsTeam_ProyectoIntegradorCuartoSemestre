@@ -30,6 +30,9 @@
 
 # BACKEND
 
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/1ba1b202-d7fd-4874-b7d3-7848e6a5da9c)
+
+
 # Infraestructura de Microservicios con Spring Boot 3 , Java 20 y Docker
 
 Este repositorio contiene una infraestructura de microservicios desarrollada con Spring Boot 3 y Java 20, que se divide en dos dominios principales: Infraestructura y Negocio. Aquí encontrarás información sobre cada uno de estos componentes y cómo se relacionan entre sí.
