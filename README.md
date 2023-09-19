@@ -30,7 +30,8 @@
 
 # BACKEND
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/1ba1b202-d7fd-4874-b7d3-7848e6a5da9c)
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7862184c-c060-4eac-999b-ad2ae4fc8147)
+
 
 
 # Infraestructura de Microservicios con Spring Boot 3 , Java 20 y Docker
