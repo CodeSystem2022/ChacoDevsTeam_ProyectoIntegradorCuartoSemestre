@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.utntecnicatura</groupId>
+	<artifactId>patitaspetshopparent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>patitaspetshopparent</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>17</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring-boot.version>3.1.3</spring-boot.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<postgres.version>42.2.16</postgres.version>
+		<java-validation.version>2.0.1.Final</java-validation.version>
+		<dockerfile-maven-version>1.4.13</dockerfile-maven-version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<!--If want exclude junit4 and use only junit5-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--Tghis plugin generate reports in two differents forma .txt and xml
+            in test phase when build life cicle is execuite-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<skipTests>true</skipTests>
+					<useSystemClassLoader>false</useSystemClassLoader>
+				</configuration>
+			</plugin>
+			<!--It is the spring-boot repackage goal that repackages the JAR produced
+            by maven to specify the main class and make it executable using an embedded container-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.1.3</version>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<executions>
+					<execution>
+						<id>build-docker-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>patitaspetshop/microservice-docker-${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.9.1</version>
+				<configuration>
+					<locales>en,fr,es</locales>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+				</configuration>
+			</plugin>
+			<!--generate project code documentation-->
+			<!--  <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <version>2.9</version>
+                  <executions>
+                      <execution>
+                          <id>attach-javadocs</id>
+                          <goals>
+                              <goal>jar</goal>
+                          </goals>
+                          <configuration>
+                              <additionalparam>${javadoc.opts}</additionalparam>
+                          </configuration>
+                      </execution>
+                  </executions>
+              </plugin>-->
+			<!--generate maven site documentation-->
+			<!--  <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-site-plugin</artifactId>
+                  <version>3.9.1</version>
+                  <configuration>
+                      <locales>es,es</locales>
+                  </configuration>
+                  <executions>
+                      <execution>
+                          <id>attach-javadocs</id>
+                          <goals>
+                              <goal>jar</goal>
+                          </goals>
+                          <configuration>
+                              <additionalparam>${javadoc.opts}</additionalparam>
+                          </configuration>
+                      </execution>
+                  </executions>
+              </plugin>-->
+		</plugins>
+	</build>
+<modules>
+	<module>businessdomain</module>
+	<module>infraestructuradomain</module>
+</modules>
+</project>

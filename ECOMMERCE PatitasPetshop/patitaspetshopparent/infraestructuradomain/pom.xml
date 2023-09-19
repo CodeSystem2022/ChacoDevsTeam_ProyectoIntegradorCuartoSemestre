@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.utntecnicatura</groupId>
+		<artifactId>patitaspetshopparent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>com.utntecnicatura.infraestructuradomain</groupId>
+	<artifactId>infraestructuradomain</artifactId>
+	<packaging>pom</packaging>
+	<name>infraestructuradomain</name>
+	<description>MCS de administracion de infraestructura</description>
+	<properties>
+		<spring-cloud-dependencies.version>2022.0.3</spring-cloud-dependencies.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+	</modules>
+
+</project>
