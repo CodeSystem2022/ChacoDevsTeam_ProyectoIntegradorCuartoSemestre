@@ -95,7 +95,9 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
 #### Comandos docker de utilidad:
 
 Iniciar los contenedores dockerizados: docker-compose up -d
+
 Detener los contenedores: docker-compose stop
+
 Eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
