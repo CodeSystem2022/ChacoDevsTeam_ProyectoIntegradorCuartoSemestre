@@ -56,13 +56,15 @@ Spring Config es un sistema de gestión de configuración que centraliza la conf
 
 El dominio de Negocio se compone de varios microservicios que gestionan diferentes aspectos de la aplicación. Aquí, se describen los principales microservicios de Negocio:
 
+Utilizaremos la interfaz SWAGGER para visibilizar y realizar las pruebas sobre los endpoints 
+
 ### CUSTOMER
 
 El microservicio CUSTOMER se encarga de la gestión de clientes y ofrece las siguientes funcionalidades:
 
 - CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar los datos de los clientes.
 - Métodos para controlar el stock de productos relacionados con cada cliente.
- Se accede través de la URL [http://localhost:8081](http://localhost:8081)
+ Se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
 
 ### PRODUCT
 
@@ -70,7 +72,7 @@ El microservicio PRODUCT se encarga de la gestión de productos y ofrece las sig
 
 - CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar los datos de los productos.
 - Métodos para controlar el stock de productos y gestionar su disponibilidad.
- Se accede través de la URL [http://localhost:8083](http://localhost:8083)
+ Se accede través de la URL [http://localhost:8083/swagger-ui/index.html#/](http://localhost:8083/swagger-ui/index.html#/)
 
 ### TRANSACTIONS
 
@@ -78,7 +80,7 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 
 - Registro de transacciones de compra.
 - Vinculación de datos de clientes y productos en cada transacción.
- Se accede través de la URL [http://localhost:8082](http://localhost:8082)
+ Se accede través de la URL [http://localhost:8082/swagger-ui/index.html#/](http://localhost:8082/swagger-ui/index.html#/)
 
 ### PGAdmin 4 
 Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de produccion, Se accede través de la URL [http://localhost:80](http://localhost:80)
