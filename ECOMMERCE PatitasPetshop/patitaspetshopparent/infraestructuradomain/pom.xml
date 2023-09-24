@@ -31,6 +31,8 @@
 		</dependencies>
 	</dependencyManagement>
 	<modules>
+        <module>adminserver</module>
+		<module>eurekaserver</module>
 	</modules>
 
 </project>
