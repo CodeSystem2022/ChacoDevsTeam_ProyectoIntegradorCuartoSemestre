@@ -112,4 +112,3 @@ Donde se iran iniciando cada microservicio en el orden determinado para que prim
 
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el repositorio remoto de Spring Config para garantizar su correcto funcionamiento.
 
-¡Disfruta utilizando esta infraestructura de microservicios con Spring Boot 3, Java 17 y DOCKER!
