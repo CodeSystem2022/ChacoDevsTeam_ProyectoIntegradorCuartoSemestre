@@ -152,5 +152,6 @@
 		</plugins>
 	</build>
 	<modules>
+		<module>customer</module>
 	</modules>
 </project>
