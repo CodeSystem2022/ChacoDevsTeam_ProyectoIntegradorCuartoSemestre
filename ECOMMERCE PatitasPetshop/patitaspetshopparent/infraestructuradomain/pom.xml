@@ -33,6 +33,7 @@
 	<modules>
         <module>adminserver</module>
 		<module>eurekaserver</module>
+		<module>configserver</module>
 	</modules>
 
 </project>
