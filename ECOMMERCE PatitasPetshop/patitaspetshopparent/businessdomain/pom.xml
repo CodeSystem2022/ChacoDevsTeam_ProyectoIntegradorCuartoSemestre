@@ -152,5 +152,9 @@
 		</plugins>
 	</build>
 	<modules>
+<<<<<<< HEAD
+=======
+		<module>customer</module>
+>>>>>>> develop
 	</modules>
 </project>
