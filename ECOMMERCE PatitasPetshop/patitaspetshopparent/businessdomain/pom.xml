@@ -154,5 +154,6 @@
 	<modules>
 		<module>customer</module>
 		<module>transaction</module>
+		<module>product</module>
 	</modules>
 </project>
