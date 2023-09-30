@@ -152,9 +152,8 @@
 		</plugins>
 	</build>
 	<modules>
-<<<<<<< HEAD
-=======
 		<module>customer</module>
->>>>>>> develop
+		<module>transaction</module>
+		<module>product</module>
 	</modules>
 </project>
