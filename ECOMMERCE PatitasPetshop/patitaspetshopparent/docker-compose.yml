@@ -116,7 +116,7 @@ services:
   ##########################################################################
   postgres_db:
     container_name: postgres
-    image: postgres:latest
+    image: postgres:15-alpine
     ports:
       - 3432:5432
     volumes:
