@@ -5,13 +5,13 @@
  */
 package com.utntecnicatura.customer.entities;
 
-import java.util.List;
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -28,4 +28,17 @@ public class Customer {
     private String apellido;
     private String direccionEnvio;
     private String email;
+    private String contraseña;
+    @CreationTimestamp
+    @Column(name = "fecha_registro", updatable = false)
+    private LocalDateTime fechaRegistro;
+
+    @UpdateTimestamp
+    @Column(name = "fecha_actualizacion")
+    private LocalDateTime fechaActualizacion;
+
+    public void setContraseña(String contraseña) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        this.contraseña = passwordEncoder.encode(contraseña);
+    }
 }

@@ -79,6 +79,18 @@ public class CustomerRestController {
         return new ResponseEntity<>(save, HttpStatus.CREATED);
     }
 
+    @GetMapping("/validarCredenciales")
+    public ResponseEntity<?> validarCredenciales( @RequestParam(required = false) String correo,
+                                                  @RequestParam(required = false) String nombre,
+                                                  @RequestParam(required = true) String contraseña) throws BusinessRuleException {
+        if ((correo == null && nombre == null) || contraseña == null) {
+            // Si falta alguno de los parámetros requeridos, devuelve un error
+            return new ResponseEntity<>("Correo o nombre y contraseña son requeridos", HttpStatus.PARTIAL_CONTENT);
+        }
+        boolean existCliente = customerService.validarCredenciales(correo, nombre, contraseña);
+        return new ResponseEntity<>(existCliente, HttpStatus.OK);
+    }
+
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) throws BusinessRuleException {
         try{
