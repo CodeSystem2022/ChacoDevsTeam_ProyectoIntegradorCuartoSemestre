@@ -5,17 +5,15 @@ import com.utntecnicatura.customer.exception.BusinessRuleException;
 import com.utntecnicatura.customer.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Optional;
 @Service
 public class CostumerServiceImpl implements ICostumerService {
     @Autowired//para no instanciar, lo realiza automaticamente el framework
     CustomerRepository customerRepository;
-
     @Override
     public Optional<Customer> findById(long id) {
         return customerRepository.findById(id);
@@ -27,8 +25,10 @@ public class CostumerServiceImpl implements ICostumerService {
     }
 
     @Override
-    public Customer get(long id) {
-        return customerRepository.findById(id).get();
+    public Customer get(long id) throws BusinessRuleException {
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new BusinessRuleException("1025",
+                                 "Error de validacion, El ID cliente : "+id+" no existe", HttpStatus.PRECONDITION_FAILED));
     }
 
     @Override
@@ -91,8 +91,29 @@ public class CostumerServiceImpl implements ICostumerService {
             customerRepository.deleteById(customer.get().getId());
         }else{
             throw new BusinessRuleException("1025",
-                    "Error de validacion, El cliente n°: "+id+" existe", HttpStatus.PRECONDITION_FAILED);
+                    "Error de validacion, El cliente n°: "+id+" no existe", HttpStatus.PRECONDITION_FAILED);
 
         }
+    }
+
+    public boolean validarCredenciales(String correo, String nombre, String contraseña)throws BusinessRuleException {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        Optional<Customer> optionalCustomerCorreo = Optional.ofNullable(customerRepository.findByEmail(correo));
+        Optional<Customer> optionalCustomerNombre = Optional.ofNullable(customerRepository.findByNombre(nombre));
+
+        boolean existCustomer = optionalCustomerCorreo.map(customerCorreo ->
+                        passwordEncoder.matches(contraseña, customerCorreo.getContraseña()))
+                .orElse(false)
+                || optionalCustomerNombre.map(customerNombre ->
+                        passwordEncoder.matches(contraseña, customerNombre.getContraseña()))
+                .orElse(false);
+
+        if (!existCustomer) {
+            throw new BusinessRuleException("1025",
+                    "Error de validación, El cliente : " + (correo != null && !correo.isEmpty() ? correo
+                            : nombre != null && !nombre.isEmpty() ? nombre : "no ingresó un dato ") + " no existe", HttpStatus.NOT_FOUND);
+        }
+
+        return true;
     }
 }
