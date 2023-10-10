@@ -1,26 +1,37 @@
-import express from "express";
-import morgan from "morgan";
-//implementar los imports para conectar los endpoints
-import cookieParser from "cookie-parser";
+import {useEffect,useState} from 'react';
+import './styles/App.css';
+//import axios from 'axios';
 
-const app = express();
-//middleware
-app.use(morgan("dev"));
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+function App() {
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    fetch('http://localhost:8083/product/listarProductos', { //8083 puerto de producto http://localhost:8083/products/listarProductos
+      method: "get",
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => setProducts(data))
+    .catch((error) => console.error('Error:', error))
+  }, []);
+  return (
+    <div className="App">
+      <h1>Lista de productos</h1>
+      <ul>
+        {products.map((product, index) => (
+          <li key={index}>
+        <strong>Nombre:</strong> {product.nombre}<br />
+          <strong>Precio:</strong> {product.precio}<br />
+          <strong>Tipo:</strong> {product.tipo}<br />
+          <strong>Especie:</strong> {product.especie}<br />
+          <strong>Stock disponible:</strong> {product.stock}<br />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-app.get("/", (req, res) => res.json({ message: "Bienvenidos a mi proyecto"}));
-app.use('/product',tareasRoutes);
-app.use('/customer',authRoutes);
-
-//manejando errores
-app.use((err, req, res, next) => {
-    res.status(500).json({
-        status: "error",
-        message: err.message
-    });
-});
-
-export default app;
+export default App;
