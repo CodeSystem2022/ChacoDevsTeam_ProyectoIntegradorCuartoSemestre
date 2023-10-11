@@ -1,5 +1,7 @@
 import {useEffect,useState} from 'react';
 import './styles/App.css';
+import Navbar from './components/Navbar';
+import './styles/styles.css'
 //import axios from 'axios';
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <Navbar/>
       <h1>Lista de productos</h1>
       <ul>
         {products.map((product, index) => (
