@@ -161,17 +161,25 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
 
 Una vez realizado el proceso de maven en los 6 microservicios, se debera abrir una terminal en la path donde se encuentra el docker-compose, "..\Chaco Devs Team-Proyecto Integrador\ChacoDevsTeam_ProyectoIntegradorCuartoSemestre\ECOMMERCE PatitasPetshop\patitaspetshopparent>" y ejecutar el siguiente comando
 
-1- Iniciar los contenedores dockerizados: docker-compose up -d
+1- Iniciar los contenedores dockerizados:
+
+docker-compose up -d
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
 
-2- En caso de realizar alguna modificacion de codigo o propiedades a algun microservicio se debera ejecutar el comando: docker-compose up -d --force-recreate
+2- En caso de realizar alguna modificacion de codigo o propiedades a algun microservicio se debera ejecutar el comando: 
+
+docker-compose up -d --force-recreate
 
 3- Si necesita detener los contenedores: docker-compose stop
 
 4- Si necesita eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
 
-Recuerda configurar adecuadamente las propiedades de cada microservicio en el docker-compose para garantizar su correcto funcionamiento (Development/Production), tan solo cambiando un valor a una variable -Dspring.profiles.active=production o -Dspring.profiles.active=development.
+Recuerda configurar adecuadamente las propiedades de cada microservicio en el docker-compose para garantizar su correcto funcionamiento (Development/Production), tan solo cambiando un valor a una variable :
+
+-Dspring.profiles.active=production 
+
+-Dspring.profiles.active=development
 
 Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
 
