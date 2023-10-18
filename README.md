@@ -84,6 +84,12 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 
 ### PGAdmin 4 
 Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de produccion, Se accede través de la URL [http://localhost:80](http://localhost:80)
+        a. Ingresar con el usuario admin@admin.com password: qwerty 
+        ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cb96bb22-5371-4dce-bac1-ca745a94f96b)
+        Esta seccion se puede modificar desde el docker-compose
+        b. Una vez ingresado se debe registrar un server nuevo:
+    
+
 
 ### PostgreSQL
 Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente.
