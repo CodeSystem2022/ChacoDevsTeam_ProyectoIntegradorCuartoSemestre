@@ -56,9 +56,23 @@ Spring Admin es una herramienta que proporciona un panel de administración para
 
 Eureka Discovery es un servicio de registro y descubrimiento que permite que los microservicios se registren automáticamente y se descubran entre sí. Esto facilita la comunicación entre los microservicios sin necesidad de conocer las ubicaciones exactas de los demás. Se accede través de la URL [http://localhost:8761](http://localhost:8761)
 
+![9](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/ff4d9ef7-f256-434e-aa5b-6f363acf4b6c)
+
 ### Spring Config (Repositorio remoto)
 
-Spring Config es un sistema de gestión de configuración que centraliza la configuración de todos los microservicios. En este repositorio, utilizamos un repositorio remoto para almacenar la configuración de los microservicios y garantizar la coherencia y la fácil administración de la configuración. Se accede través de la URL [http://localhost:8888](http://localhost:8888)
+Spring Config es un sistema de gestión de configuración que centraliza la configuración de todos los microservicios. Utilizamos un repositorio remoto para almacenar la configuración de los microservicios y garantizar la coherencia y la fácil administración de la configuración. Se accede través de la URL [http://localhost:8888](http://localhost:8888)
+User: admin
+Password: qwerty
+Development: Nos muestra las configuraciones para un ambiente de desarrollo
+
+URL: [Development](http://localhost:8888/config-client/development)
+
+![10](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/fcc2b680-cd72-4f94-a6b1-728aa988aaa7)
+
+Production: Nos muestra las configuraciones para un ambiente de de produccion
+URL: [Production](http://localhost:8888/config-client/production)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5b876153-1f3a-413f-a37e-373138316cc2)
 
 ## Negocio
 
@@ -74,6 +88,8 @@ El microservicio CUSTOMER se encarga de la gestión de clientes y ofrece las sig
 - Métodos para controlar el stock de productos relacionados con cada cliente.
  Se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
 
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5e04b34c-969f-4117-bf95-2e5035d6e34e)
+
 ### PRODUCT
 
 El microservicio PRODUCT se encarga de la gestión de productos y ofrece las siguientes funcionalidades:
@@ -82,6 +98,8 @@ El microservicio PRODUCT se encarga de la gestión de productos y ofrece las sig
 - Métodos para controlar el stock de productos y gestionar su disponibilidad.
  Se accede través de la URL [http://localhost:8083/swagger-ui/index.html#/](http://localhost:8083/swagger-ui/index.html#/)
 
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/9c0da896-adcd-40dc-9093-b2e2e770fd1b)
+
 ### TRANSACTIONS
 
 El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compra de productos y vincular datos de clientes (CUSTOMER) con los productos comprados (PRODUCT). Sus funcionalidades incluyen:
@@ -89,6 +107,8 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 - Registro de transacciones de compra.
 - Vinculación de datos de clientes y productos en cada transacción.
  Se accede través de la URL [http://localhost:8082/swagger-ui/index.html#/](http://localhost:8082/swagger-ui/index.html#/)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/84ba30eb-a8a4-4088-b8a1-bca3ee1cae86)
 
 ### PostgreSQL
 Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente.
@@ -115,7 +135,13 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
 1. Clona este repositorio a tu máquina local.
 
 2. Inicia los componentes de infraestructura y negocio (Spring Admin, Eureka Discovery, Spring Config, customer, product ,transaction) utilizando Docker Compose en modo daemon (background) con el siguiente comando:
-
+   a. Se debe correr el comando de mvn clean install a todos los microservicios comenzando por los de infraestructura y luego los de negocio.
+   b. Tambien mediante las tareas de maven que nos proporciona Intellij IDEA, CLEAN -> COMPILE -> INSTALL
+   
+   ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/921b9d8d-ebed-4bfc-b84a-1627c6a5bb07)
+   
+   c. Esto ira generando las imagenes de docker, se debe realizar solo una vez.
+   
 #### Comandos docker de utilidad:
 
 Iniciar los contenedores dockerizados: docker-compose up -d
