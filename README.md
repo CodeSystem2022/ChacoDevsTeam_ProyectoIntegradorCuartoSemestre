@@ -155,7 +155,7 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
    
    ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/921b9d8d-ebed-4bfc-b84a-1627c6a5bb07)
    
-   c. Esto ira generando las imagenes de docker, se debe realizar solo una vez.
+   c. Esto ira generando las imagenes de docker, se debe realizar solo una vez por cada microservicio.
    
 #### Comandos docker de utilidad:
 
