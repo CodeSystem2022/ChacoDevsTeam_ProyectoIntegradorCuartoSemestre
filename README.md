@@ -42,7 +42,15 @@ La infraestructura de microservicios se encarga de proporcionar las herramientas
 
 ### Spring Admin
 
-Spring Admin es una herramienta que proporciona un panel de administración para monitorear y gestionar los microservicios de manera centralizada. Puedes acceder al panel de administración de Spring Admin a través de la URL [http://localhost:8762](http://localhost:8762) una vez que los microservicios estén en ejecución.
+Spring Admin es una herramienta que proporciona un panel de administración para monitorear y gestionar los microservicios de manera centralizada. Puedes acceder al panel de administración de Spring Admin a través de la URL [http://localhost:8762](http://localhost:8762) una vez que los microservicios estén en ejecución. 
+
+ ![6](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/60bbd961-9807-4a18-addc-cfbed2d35862)
+
+ a.Accede al panel de administración de Spring Admin para monitorear y gestionar los microservicios.
+
+ ![7](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/ae0db602-9a02-47fe-b9a7-0a4f331b0a44)
+
+ ![8](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cbd7b6ea-2e9c-4690-8e63-dddf799e6d71)
 
 ### Eureka Discovery
 
@@ -82,17 +90,23 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 - Vinculación de datos de clientes y productos en cada transacción.
  Se accede través de la URL [http://localhost:8082/swagger-ui/index.html#/](http://localhost:8082/swagger-ui/index.html#/)
 
+### PostgreSQL
+Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente.
+
 ### PGAdmin 4 
 Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de produccion, Se accede través de la URL [http://localhost:80](http://localhost:80)
         a. Ingresar con el usuario admin@admin.com password: qwerty 
         ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cb96bb22-5371-4dce-bac1-ca745a94f96b)
         Esta seccion se puede modificar desde el docker-compose
+        ![1](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/afafed3e-e313-40c5-8c2b-585df3a5db8a)
         b. Una vez ingresado se debe registrar un server nuevo:
-    
-
-
-### PostgreSQL
-Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente.
+        ![2](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/26a475cb-545f-499a-9183-f67b6fffa8b6)
+        c. Configurar los siguientes campos de la siguiente manera:     
+        ![3](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/6cda4cf0-e3e4-4572-b3b5-73711f270a4a)
+        ![4](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/8ad154db-e91a-4853-97e1-e5ebf546f244)
+        d. Luego SAVE
+        e.Si todo salio correcto y los microservicios de COSTUMER PRODUCT Y TRANSACTION se iniciaron correctamente se tendrian que haber creado sus correspondientes tablas en el esquema "SPRINGBOOTSCHEMA"
+        ![5](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/a0539540-9ce2-411a-9012-e12b805e16b8)
 
 ## Instrucciones de Uso
 
@@ -112,9 +126,7 @@ Eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comand
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
 
-4. Accede al panel de administración de Spring Admin para monitorear y gestionar los microservicios.
-
-5. Utiliza los microservicios de Negocio (CUSTOMER, PRODUCT, TRANSACTIONS) según tus necesidades específicas.
+3. Utiliza los microservicios de Negocio (CUSTOMER, PRODUCT, TRANSACTIONS) según tus necesidades específicas.
 
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el repositorio remoto de Spring Config para garantizar su correcto funcionamiento.
 
