@@ -175,6 +175,13 @@ Recuerda configurar adecuadamente las propiedades de cada microservicio en el do
 
 Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
 
+En este caso el microservicio de transacciones estara en un ambiente productivo, implica el uso de la configuracion de base de datos de postgres
+
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7251066a-93aa-4281-b340-4be389d862c8)
+
+En este caso el microservicio de clientes estara en un ambiente de desarrollo, implica el uso de la configuracion de base de datos en memoria H2
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7e542a83-c6c8-4972-a75f-d6718874237e)
+
 
 
