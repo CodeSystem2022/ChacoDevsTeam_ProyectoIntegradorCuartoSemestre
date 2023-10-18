@@ -116,18 +116,30 @@ Mediante el docker-compose se genera una contenedor con un imagen de Postgresql 
 
 ### PGAdmin 4 
 Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de produccion, Se accede través de la URL [http://localhost:80](http://localhost:80)
-        a. Ingresar con el usuario admin@admin.com password: qwerty 
-        ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cb96bb22-5371-4dce-bac1-ca745a94f96b)
-        Esta seccion se puede modificar desde el docker-compose
-        ![1](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/afafed3e-e313-40c5-8c2b-585df3a5db8a)
-        b. Una vez ingresado se debe registrar un server nuevo:
-        ![2](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/26a475cb-545f-499a-9183-f67b6fffa8b6)
-        c. Configurar los siguientes campos de la siguiente manera:     
-        ![3](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/6cda4cf0-e3e4-4572-b3b5-73711f270a4a)
-        ![4](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/8ad154db-e91a-4853-97e1-e5ebf546f244)
-        d. Luego SAVE
-        e.Si todo salio correcto y los microservicios de COSTUMER PRODUCT Y TRANSACTION se iniciaron correctamente se tendrian que haber creado sus correspondientes tablas en el esquema "SPRINGBOOTSCHEMA"
-        ![5](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/a0539540-9ce2-411a-9012-e12b805e16b8)
+        
+a. Ingresar con el usuario admin@admin.com password: qwerty 
+       
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cb96bb22-5371-4dce-bac1-ca745a94f96b)
+       
+Esta seccion se puede modificar desde el docker-compose
+       
+![1](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/afafed3e-e313-40c5-8c2b-585df3a5db8a)
+       
+b. Una vez ingresado se debe registrar un server nuevo:
+       
+![2](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/26a475cb-545f-499a-9183-f67b6fffa8b6)
+       
+c. Configurar los siguientes campos de la siguiente manera:     
+        
+![3](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/6cda4cf0-e3e4-4572-b3b5-73711f270a4a)
+        
+![4](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/8ad154db-e91a-4853-97e1-e5ebf546f244)
+       
+d. Luego SAVE
+       
+e.Si todo salio correcto y los microservicios de COSTUMER PRODUCT Y TRANSACTION se iniciaron correctamente se tendrian que haber creado sus correspondientes tablas en el esquema "SPRINGBOOTSCHEMA"
+       
+![5](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/a0539540-9ce2-411a-9012-e12b805e16b8)
 
 ## Instrucciones de Uso
 
@@ -136,8 +148,10 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
 1. Clona este repositorio a tu máquina local.
 
 2. Inicia los componentes de infraestructura y negocio (Spring Admin, Eureka Discovery, Spring Config, customer, product ,transaction) utilizando Docker Compose en modo daemon (background) con el siguiente comando:
+  
    a. Se debe correr el comando de mvn clean install a todos los microservicios comenzando por los de infraestructura y luego los de negocio.
-   b. Tambien mediante las tareas de maven que nos proporciona Intellij IDEA, CLEAN -> COMPILE -> INSTALL
+
+    b. Tambien mediante las tareas de maven que nos proporciona Intellij IDEA, CLEAN -> COMPILE -> INSTALL
    
    ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/921b9d8d-ebed-4bfc-b84a-1627c6a5bb07)
    
@@ -145,15 +159,22 @@ Para utilizar esta infraestructura de microservicios, sigue estos pasos:
    
 #### Comandos docker de utilidad:
 
-Iniciar los contenedores dockerizados: docker-compose up -d
+Una vez realizado el proceso de maven en los 6 microservicios, se debera abrir una terminal en la path donde se encuentra el docker-compose, "..\Chaco Devs Team-Proyecto Integrador\ChacoDevsTeam_ProyectoIntegradorCuartoSemestre\ECOMMERCE PatitasPetshop\patitaspetshopparent>" y ejecutar el siguiente comando
 
-Detener los contenedores: docker-compose stop
-
-Eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
+1- Iniciar los contenedores dockerizados: docker-compose up -d
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
 
-3. Utiliza los microservicios de Negocio (CUSTOMER, PRODUCT, TRANSACTIONS) según tus necesidades específicas.
+2- En caso de realizar alguna modificacion de codigo o propiedades a algun microservicio se debera ejecutar el comando: docker-compose up -d --force-recreate
 
-Recuerda configurar adecuadamente las propiedades de cada microservicio en el repositorio remoto de Spring Config para garantizar su correcto funcionamiento.
+3- Si necesita detener los contenedores: docker-compose stop
+
+4- Si necesita eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
+
+Recuerda configurar adecuadamente las propiedades de cada microservicio en el docker-compose para garantizar su correcto funcionamiento (Development/Production), tan solo cambiando un valor a una variable -Dspring.profiles.active=production o -Dspring.profiles.active=development.
+
+Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7251066a-93aa-4281-b340-4be389d862c8)
+
 
