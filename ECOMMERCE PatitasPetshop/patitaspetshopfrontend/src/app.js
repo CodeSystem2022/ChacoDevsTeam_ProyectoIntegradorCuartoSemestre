@@ -1,38 +1,31 @@
-import {useEffect,useState} from 'react';
+
 import './styles/App.css';
-import Navbar from './components/Navbar';
 import './styles/styles.css'
-//import axios from 'axios';
+import { BrowserRouter, Route} from 'react-router-dom';
+import Home from './Views/Home/Home';
+import Form from './Views/Formulario/Form';
+import NavBar from './components/NavBar/NavBar';
+import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import Gatos from './Views/Gatos/Gatos';
+import Perros from './Views/Perros/Perros';
+import Sucursales from './Views/Sucursales';
+import Accesorios from './Views/Accesorios/Accesorios';
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8083/product/listarProductos', { //8083 puerto de producto http://localhost:8083/products/listarProductos
-      method: "get",
-      headers: {
-        "ngrok-skip-browser-warning": "69420",
-      }
-    })
-    .then((response) => response.json())
-    .then((data) => setProducts(data))
-    .catch((error) => console.error('Error:', error))
-  }, []);
+ 
   return (
     <div className="App">
-      <Navbar/>
-      <h1>Lista de productos</h1>
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-        <strong>Nombre:</strong> {product.nombre}<br />
-          <strong>Precio:</strong> {product.precio}<br />
-          <strong>Tipo:</strong> {product.tipo}<br />
-          <strong>Especie:</strong> {product.especie}<br />
-          <strong>Stock disponible:</strong> {product.stock}<br />
-          </li>
-        ))}
-      </ul>
+        <BrowserRouter>
+        <Route  path={'*'} component={NavBar}></Route>
+          <Switch>
+            <Route exact path={'/'} component={Home}></Route>
+            <Route path={'/form'} component={Form}></Route>
+            <Route path={'/gatos'} component={Gatos}></Route>
+            <Route path={'/perros'} component={Perros}></Route>
+            <Route path={'/sucursales'} component={Sucursales}></Route>
+            <Route path={'/accesorios'} component={Accesorios}></Route>
+          </Switch>
+        </BrowserRouter>
     </div>
   );
 }

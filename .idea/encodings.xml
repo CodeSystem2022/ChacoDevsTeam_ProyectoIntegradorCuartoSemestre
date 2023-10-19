@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/customer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/customer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/product/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/transaction/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/businessdomain/transaction/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/adminserver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/adminserver/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/configserver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/configserver/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/eurekaserver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/eurekaserver/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/infraestructuradomain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ECOMMERCE PatitasPetshop/patitaspetshopparent/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

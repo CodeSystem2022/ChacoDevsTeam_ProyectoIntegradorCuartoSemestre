@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json.schemastore.org/package#",
+  "name": "maven",
+  "version": "5.0.0",
+  "description": "Maven wrapper for Node.js",
+  "main": "index.js",
+  "preferGlobal": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:headcr4sh/node-maven.git"
+  },
+  "keywords": [
+    "maven",
+    "mvn",
+    "m2",
+    "java"
+  ],
+  "author": "Benjamin P. Jung <headcr4sh@gmail.com>",
+  "contributors": [
+    "Aaron Gershman <aegershman@gmail.com>",
+    "Åsmund Grammeltvedt <asgramme@microsoft.com>",
+    "Christian Budde Christensen <budde377@gmail.com>",
+    "Dmitry Broznich <xmbroz@gmail.com>",
+    "Kaustubh Gadre <kaustubh.gadre@cerner.com>",
+    "Olivier Lemasle <o.lemasle@gmail.com>",
+    "Ruben <rr@headwire.com>",
+    "Søren Jepsen <soren.jepsen@se.com>",
+    "Yuri Bett <yuribett@gmail.com>",
+    "杨博 (Yang Bo) <pop.atry@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/headcr4sh/node-maven/issues"
+  },
+  "homepage": "https://github.com/headcr4sh/node-maven",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "typings": "./typings.d.ts"
+}
