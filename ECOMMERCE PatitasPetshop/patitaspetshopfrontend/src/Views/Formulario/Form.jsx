@@ -32,7 +32,7 @@ const Form = () => {
         case "nombre":
           if (state.nombre === "") {
             setErrors({ ...errors,nombre: "Campo obligatorio" });
-          } else if (!nameRegex.test(state)) {
+          } else if (!nameRegex.test(state.nombre)) {
             setErrors({ ...errors,nombre: "El nombre solo puede contener letras y espacios" });
           } else {
             setErrors({ ...errors,nombre: "" });
@@ -42,7 +42,7 @@ const Form = () => {
         case "apellido":
           if (state.apellido === "") {
             setErrors({ ...errors, apellido: "Campo obligatorio" });
-          } else if (!nameRegex.test(state)) {
+          } else if (!nameRegex.test(state.apellido)) {
             setErrors({ ...errors, apellido: "El apellido solo puede contener letras y espacios" });
           } else {
             setErrors({ ...errors, apellido: "" });
@@ -52,8 +52,8 @@ const Form = () => {
         case "direccion":
           if (state.direccion === "") {
             setErrors({ ...errors, direccion: "Campo obligatorio" });
-          } else if (!addressRegex.test(state)) {
-            setErrors({ ...errors, direccion: "Dirección no válida" });
+          } else if (!addressRegex.test(state.direccion)) {
+            setErrors({ ...errors, direccion: "Dirección no válida,no puede poseer puntos ni comas" });
           } else {
             setErrors({ ...errors, direccion: "" });
           }
@@ -62,8 +62,8 @@ const Form = () => {
         case "celular":
           if (state.celular === "") {
             setErrors({ ...errors, celular: "Campo obligatorio" });
-          } else if (!celularRegex.test(state)) {
-            setErrors({ ...errors, celular: "Número de celular incorrecto" });
+          } else if (!celularRegex.test(state.celular)) {
+            setErrors({ ...errors, celular: "Número de celular incorrecto,no se admiten letras" });
           } else {
             setErrors({ ...errors, celular: "" });
           }
@@ -71,7 +71,7 @@ const Form = () => {
         case "email":
           if (state.email === "") {
             setErrors({ ...errors, email: "El campo de correo electrónico no puede estar vacío." });
-          } else if (!emailRegex.test(state)) {
+          } else if (!emailRegex.test(state.email)) {
             setErrors({ ...errors, email: "El correo electrónico no es válido." });
           } else {
             setErrors({ ...errors, email: "" });
@@ -81,7 +81,7 @@ const Form = () => {
         case "contraseña":
           if (state.contraseña === "") {
             setErrors({ ...errors, contraseña: "La contraseña no puede estar vacía." });
-          } else if (!passwordRegex.test(state)) {
+          } else if (!passwordRegex.test(state.contraseña)) {
             setErrors({
               ...errors,
               contraseña: "La contraseña debe contener al menos 8 caracteres, incluyendo una letra mayúscula, una letra minúscula, un número y un carácter especial."
