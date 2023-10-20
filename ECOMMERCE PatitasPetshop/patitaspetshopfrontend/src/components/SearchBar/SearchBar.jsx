@@ -1,14 +1,14 @@
 import React from 'react'
+import '../Cards/Card.css'
 
 const SearchBar = () => {
   return (
-    <div>
-      <h1>Barra de busqueda</h1>
+    <div className='SearchBar'>
       <input 
-        placeholder='Busca aqui'
+        placeholder='Buscar'
         type='search'
-      ></input>
-      <button type="submit" >Buscar</button>
+      ></input><button class="btn btn-outline-success my-2 my-sm-0" type="submit" > <img src="lupa-03.png" height={35} alt="Buscar"></img></button>
+      
     </div>
   )
 }

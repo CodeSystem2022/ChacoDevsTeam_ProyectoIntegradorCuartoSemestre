@@ -1,0 +1,77 @@
+.logo{
+    margin-left: 70px;
+    display: flex;
+}
+
+.navbar-cont {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4c382;
+    color: #dd1a1a;
+    padding: 0px!important; /* Elimina el relleno para que la barra ocupe el ancho completo */
+    font-family: 'Montserrat', sans-serif!important;
+    font-weight: 600;
+}
+
+
+.nav-menu ul {
+    margin-right: 200px;
+    list-style-type: none; /* Quita los puntos de lista */
+    
+    display: flex;
+}
+  
+  .nav-menu li {
+    margin-right: 20px; /* Espaciado entre elementos del menú */
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #dd1a1a; 
+  }
+  
+  .nav-menu button {
+    border: none;
+    cursor: pointer; 
+    padding: 0; 
+}
+    
+.nav-menu a:hover {
+    color: #000000!important;
+}
+
+.SearchBar {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    align-items: center; /* Alineamos verticalmente los elementos al centro */
+  }
+  
+  .SearchBar input {
+    font-family: 'Roboto', sans-serif!important;
+    width: 500px;
+    height: 40px;
+    border-radius: 25px;
+    border-color: transparent!important;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .btn-outline-success {
+    border-color: transparent!important;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-left: 5px;
+  }
+  
+  .btn-outline-success img {
+    height: 35px;
+    
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #f7ba66;
+    border-color: transparent!important;
+  }
+  .swiper-wrapper {
+    max-width: 100%;
+}
