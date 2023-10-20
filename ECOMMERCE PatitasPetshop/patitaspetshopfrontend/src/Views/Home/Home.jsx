@@ -15,13 +15,13 @@ const Home = () => {
 
 
   return (
-    <div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="slider1.jpg" alt="Imagen 1" /></div>
-    <div class="swiper-slide"><img src="slider2.jpg" alt="Imagen 2" /></div>
-    <div class="swiper-slide"><img src="slider3.jpg" alt="Imagen 3" /></div>
-  </div>
-  </div>
+    <div>
+      <h1>Home</h1>
+      <h2>Aca se deberia renderizar el home</h2>
+      <div>
+        <Cards allProducts={allProducts}></Cards>
+      </div>
+    </div>
   )
 }
 
