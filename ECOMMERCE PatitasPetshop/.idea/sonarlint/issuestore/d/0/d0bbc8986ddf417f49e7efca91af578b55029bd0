@@ -1,0 +1,24 @@
+
+k	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Àûÿÿÿÿ
+A
+java:S1452'"&Remove usage of generic wildcard type.(¾¦Ğ‚ıÿÿÿÿ
+<
+java:S14522"&Remove usage of generic wildcard type.(šŠªå
+A
+java:S1452="&Remove usage of generic wildcard type.(é…¦şÿÿÿÿ
+A
+java:S1452H"&Remove usage of generic wildcard type.(±èÕØüÿÿÿÿ
+<
+java:S1452M"&Remove usage of generic wildcard type.(±ÓòÌ
+<
+java:S1452S"&Remove usage of generic wildcard type.(ªÔ·
+;
+java:S1452_"&Remove usage of generic wildcard type.(üÎız
+l
+java:S1128"VRemove this unused import 'com.utntecnicatura.customer.repository.CustomerRepository'.(Ñé›æ
+o
+java:S1128"TRemove this unused import 'com.utntecnicatura.customer.service.CostumerServiceImpl'.(Êùååşÿÿÿÿ
+U
+java:S1128":Remove this unused import 'java.net.UnknownHostException'.(Ú·¬˜úÿÿÿÿ
+J
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ
