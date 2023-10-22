@@ -1,5 +1,6 @@
 package com.utntecnicatura.customer.controller;
 
+import com.utntecnicatura.customer.entities.Credencial;
 import com.utntecnicatura.customer.entities.Customer;
 import com.utntecnicatura.customer.exception.BusinessRuleException;
 import com.utntecnicatura.customer.repository.CustomerRepository;
@@ -79,15 +80,15 @@ public class CustomerRestController {
         return new ResponseEntity<>(save, HttpStatus.CREATED);
     }
 
-    @GetMapping("/validarCredenciales")
-    public ResponseEntity<?> validarCredenciales( @RequestParam(required = false) String correo,
-                                                  @RequestParam(required = false) String nombre,
-                                                  @RequestParam(required = true) String contraseña) throws BusinessRuleException {
-        if ((correo == null && nombre == null) || contraseña == null) {
+    @PostMapping("/validarCredenciales")
+    public ResponseEntity<?> validarCredenciales(@RequestBody Credencial credencial) throws BusinessRuleException {
+        if (((credencial.getCorreo() == null ||credencial.getCorreo().trim().isEmpty())
+                && (credencial.getNombre() == null || credencial.getNombre().trim().isEmpty()))
+                || (credencial.getContraseña() == null || credencial.getContraseña().trim().isEmpty())) {
             // Si falta alguno de los parámetros requeridos, devuelve un error
             return new ResponseEntity<>("Correo o nombre y contraseña son requeridos", HttpStatus.PARTIAL_CONTENT);
         }
-        boolean existCliente = customerService.validarCredenciales(correo, nombre, contraseña);
+        boolean existCliente = customerService.validarCredenciales(credencial.getCorreo(), credencial.getNombre(), credencial.getContraseña());
         return new ResponseEntity<>(existCliente, HttpStatus.OK);
     }
 
