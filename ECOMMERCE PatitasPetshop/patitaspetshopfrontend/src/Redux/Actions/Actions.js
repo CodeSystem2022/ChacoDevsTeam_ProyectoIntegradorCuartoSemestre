@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_PRODUCTS } from "./Actions-type";
+import { ADD_CARRITO, CLEAR_CARRITO, GET_PRODUCTS, REMOVE_ALL_CARRITO, REMOVE_ONE_CARRITO } from "./Actions-type";
 
 export  function getProducts(){
     return async function(dispatch){
@@ -27,3 +27,11 @@ export function postUser(state){
            alert(error.response.error)}
     }
 }
+
+export const addToCart=(id)=>({type:ADD_CARRITO,payload:id})
+
+export const deleteCart=(id,all=false)=>
+    all?{type:REMOVE_ALL_CARRITO,payload:id}
+    :{type:REMOVE_ONE_CARRITO,payload:id}
+
+export const clearCart =()=>({type:CLEAR_CARRITO})

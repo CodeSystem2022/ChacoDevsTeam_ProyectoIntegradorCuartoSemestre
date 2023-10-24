@@ -1,21 +1,24 @@
 import React from 'react'
 import { Card } from '../Card/Card';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const Cards = ({allProducts}) => {
-  console.log(allProducts)
+
+const Cards = ({ allProducts }) => {
+
   return (
-    <div className='cards-cont'>
-      {allProducts.map((producto)=>
-      <Card  nombre={producto.nombre} 
-      precio={producto.precio} 
-      tipo={producto.tipo}
-      stock={producto.stock}
-      especie={producto.especie}
-      key={producto.id} 
-      imagen={producto.imagen} >
-      </Card>)}
+    <div className="cards-cont">
+      {allProducts.map((producto) => (
+        <Link to={`/detail/${producto.id}`} key={producto.id}>
+             <Card
+               nombre={producto.nombre}
+               precio={producto.precio}
+               imagen={producto.imagen}
+               id={producto.id}
+             />
+        </Link>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default Cards;

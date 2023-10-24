@@ -10,21 +10,31 @@ import Gatos from './Views/Gatos/Gatos';
 import Perros from './Views/Perros/Perros';
 import Sucursales from './Views/Sucursales';
 import Accesorios from './Views/Accesorios/Accesorios';
+import Detail from './Views/Detail/Detail'
+import Carrito from './components/Carrito/Carrito';
+import React from 'react';
+import CarritoProvider from './CarritoContext/CarritoContext';
+
+
+
 
 function App() {
- 
   return (
     <div className="App">
         <BrowserRouter>
-        <Route  path={'*'} component={NavBar}></Route>
-          <Switch>
-            <Route exact path={'/'} component={Home}></Route>
-            <Route path={'/form'} component={Form}></Route>
-            <Route path={'/gatos'} component={Gatos}></Route>
-            <Route path={'/perros'} component={Perros}></Route>
-            <Route path={'/sucursales'} component={Sucursales}></Route>
-            <Route path={'/accesorios'} component={Accesorios}></Route>
-          </Switch>
+          <CarritoProvider >
+            <Route  path={'*'} component={NavBar}></Route>
+            <Switch>
+              <Route exact path={'/'} component={Home}></Route>
+              <Route path={'/form'} component={Form}></Route>
+              <Route path={'/gatos'} component={Gatos}></Route>
+              <Route path={'/perros'} component={Perros}></Route>
+              <Route path={'/sucursales'} component={Sucursales}></Route>
+              <Route path={'/accesorios'} component={Accesorios}></Route>
+              <Route path='/detail/:id' component={Detail} />
+              <Route path='/carrito' component={Carrito} />
+            </Switch>
+          </CarritoProvider>
         </BrowserRouter>
     </div>
   );
