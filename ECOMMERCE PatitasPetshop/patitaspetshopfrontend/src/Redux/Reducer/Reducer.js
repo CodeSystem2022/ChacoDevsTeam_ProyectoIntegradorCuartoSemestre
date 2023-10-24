@@ -1,8 +1,9 @@
-import { GET_PRODUCTS } from "../Actions/Actions-type";
+import { GET_PRODUCTS} from "../Actions/Actions-type";
 
 
 let initialState={
-    allProducts:[]
+    allProducts:[],
+    carrito:[]
 }
 
 function rootReducer(state=initialState,action){
@@ -12,6 +13,7 @@ function rootReducer(state=initialState,action){
                 ...state,
                 allProducts:action.payload
             }
+       
         default:
             return state
     }

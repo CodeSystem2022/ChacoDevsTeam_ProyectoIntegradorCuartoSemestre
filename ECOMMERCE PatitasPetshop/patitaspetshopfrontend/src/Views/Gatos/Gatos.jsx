@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getProducts } from '../../Redux/Actions/Actions';
+import Cards from '../../components/Cards/Cards';
 
 const Gatos = () => {
-  return (
-    <div>
-      <h1>Gatos</h1>
-      <h5>Renderizado ok</h5>
-    </div>
-    
-  )
+const dispatch = useDispatch();
+const allProducts = useSelector((state) => state.allProducts);
+
+useEffect(() => {
+  dispatch(getProducts());
+}, [dispatch]);
+
+// Filtrar los productos con especie "felino"
+const gatosProducts = allProducts.filter((product) =>   product.tipo==="ALIMENTO"&& product.especie === 'GATO');
+
+return (
+  <div>
+    <Cards allProducts={gatosProducts}></Cards>
+  </div>
+);
 }
 
-export default Gatos
+export default Gatos;
+
+
+
+
+
+
