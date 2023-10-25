@@ -1,6 +1,6 @@
 package com.utntecnicatura.transaction.utils.enums;
 
-public enum Status {
+public enum TipoFacturacion {
     PENDIENTE("01", "Pendiente"),
     LIQUIDADA("02", "Liquidada"),
     RECHAZADA("03", "Rechazada"),
@@ -9,7 +9,7 @@ public enum Status {
     private final String codigo;
     private final String descripcion;
 
-    private Status(String codigo, String descripcion) {
+    private TipoFacturacion(String codigo, String descripcion) {
         this.codigo = codigo;
         this.descripcion = descripcion;
     }
