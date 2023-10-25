@@ -9,9 +9,7 @@ const Contador = ({initial,stock,onAdd}) => {
     const increase= ()=>{
         setContador(contador+1)
     }
-    useEffect(()=>{
-        setContador(parseInt(initial))
-    },[initial])
+  
 
   return (
     <div>

@@ -14,6 +14,9 @@ import Detail from './Views/Detail/Detail'
 import Carrito from './components/Carrito/Carrito';
 import React from 'react';
 import CarritoProvider from './CarritoContext/CarritoContext';
+import Identificacion from './Views/Identificacion/Identificacion';
+import Entrega from './Views/Entrega/Entrega';
+import Pagos from './Views/Pagos/Pagos';
 
 
 
@@ -33,6 +36,9 @@ function App() {
               <Route path={'/accesorios'} component={Accesorios}></Route>
               <Route path='/detail/:id' component={Detail} />
               <Route path='/carrito' component={Carrito} />
+              <Route path='/identificacion' component={Identificacion} />
+              <Route path='/entrega' component={Entrega} />
+              <Route path='/pagos' component={Pagos} />
             </Switch>
           </CarritoProvider>
         </BrowserRouter>

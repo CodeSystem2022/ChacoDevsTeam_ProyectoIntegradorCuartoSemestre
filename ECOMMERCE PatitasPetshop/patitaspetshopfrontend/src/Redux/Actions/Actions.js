@@ -1,13 +1,15 @@
 import axios from "axios";
-import { ADD_CARRITO, CLEAR_CARRITO, GET_PRODUCTS, REMOVE_ALL_CARRITO, REMOVE_ONE_CARRITO } from "./Actions-type";
+import { GET_PRODUCTS } from "./Actions-type";
 
 export  function getProducts(){
     return async function(dispatch){
         try {
             const response=await axios.get('http://localhost:8083/product/listarProductos')
+            console.log(response.data)
             dispatch({
                 type:GET_PRODUCTS,
                 payload:response.data
+                
             })
         } catch (error) {
             console.log(error)
@@ -28,10 +30,13 @@ export function postUser(state){
     }
 }
 
-export const addToCart=(id)=>({type:ADD_CARRITO,payload:id})
-
-export const deleteCart=(id,all=false)=>
-    all?{type:REMOVE_ALL_CARRITO,payload:id}
-    :{type:REMOVE_ONE_CARRITO,payload:id}
-
-export const clearCart =()=>({type:CLEAR_CARRITO})
+export function alimentoByNombre(nombre){
+    return async dispatch =>{
+        const endPoint=(`http://localhost:8083/product/obtenerProducto/nombre/${nombre}`)
+        const response= await axios.get(endPoint);
+        return dispatch({
+            type:GET_PRODUCTS,
+            payload:[response.data]
+        })
+    }
+}
