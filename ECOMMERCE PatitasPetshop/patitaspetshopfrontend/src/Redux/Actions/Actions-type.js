@@ -1,9 +1,4 @@
 export const GET_PRODUCTS='GET_PRODUCTS'
 
 
-//carrito de compras
-export const ADD_CARRITO='ADD_CARRITO'
-export const REMOVE_ONE_CARRITO='REMOVE_ONE_CARRITO'
-export const REMOVE_ALL_CARRITO='REMOVE_ALL_CARRITO'
-export const CLEAR_CARRITO='CLEAR_CARRITO'
 
