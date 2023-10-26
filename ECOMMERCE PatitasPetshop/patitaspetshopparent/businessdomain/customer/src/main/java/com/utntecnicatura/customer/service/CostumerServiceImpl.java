@@ -96,7 +96,7 @@ public class CostumerServiceImpl implements ICostumerService {
         }
     }
 
-    public boolean validarCredenciales(String correo, String nombre, String contraseña)throws BusinessRuleException {
+    public Optional<Customer> validarCredenciales(String correo, String nombre, String contraseña)throws BusinessRuleException {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         Optional<Customer> optionalCustomerCorreo = Optional.ofNullable(customerRepository.findByEmail(correo));
         Optional<Customer> optionalCustomerNombre = Optional.ofNullable(customerRepository.findByNombre(nombre));
@@ -114,6 +114,6 @@ public class CostumerServiceImpl implements ICostumerService {
                             : nombre != null && !nombre.isEmpty() ? nombre : "no ingresó un dato ") + " no existe", HttpStatus.NOT_FOUND);
         }
 
-        return true;
+        return optionalCustomerCorreo;
     }
 }
