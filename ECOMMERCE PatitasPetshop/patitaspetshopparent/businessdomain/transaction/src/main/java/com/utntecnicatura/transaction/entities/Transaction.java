@@ -1,7 +1,6 @@
 package com.utntecnicatura.transaction.entities;
 
 import com.utntecnicatura.transaction.utils.enums.Medio;
-import com.utntecnicatura.transaction.utils.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import jakarta.persistence.*;
@@ -26,7 +25,6 @@ public class Transaction {
     private Date fechaTransaccion;
     private double monto;
     private String descripcion;
-    private Status estado;
     private Medio canal;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "transaction", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Producttransaction> producttransactions;

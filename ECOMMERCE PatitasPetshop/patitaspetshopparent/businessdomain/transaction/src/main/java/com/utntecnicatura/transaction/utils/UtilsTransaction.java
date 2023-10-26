@@ -5,7 +5,6 @@ import com.utntecnicatura.transaction.entities.Producttransaction;
 import com.utntecnicatura.transaction.entities.Transaction;
 import com.utntecnicatura.transaction.exception.BusinessRuleException;
 import com.utntecnicatura.transaction.mcsClients.MicroserviceClients;
-import com.utntecnicatura.transaction.utils.enums.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -45,14 +44,6 @@ public class UtilsTransaction {
             return true;
         }else
             return false;
-    }
-
-    public Status validarDate(Date dateTime){
-        if (dateTime.after(new Date()))
-            return Status.PENDIENTE;
-        else
-            return Status.LIQUIDADA;
-
     }
 
     public void validarCliente(Transaction transaction) throws UnknownHostException, BusinessRuleException {

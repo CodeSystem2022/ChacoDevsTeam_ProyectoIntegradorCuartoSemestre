@@ -69,7 +69,6 @@ public class ImplTransactionService implements ITransactionService {
                 transaction.get().setDescripcion(input.getDescripcion());
                 transaction.get().setReferencia(input.getReferencia());
                 transaction.get().setMonto(input.getMonto());
-                transaction.get().setEstado(utilsTransaction.validarDate(input.getFechaTransaccion()));
                 transaction.get().setCanal(input.getCanal());
                 transaction.get().setFechaTransaccion(input.getFechaTransaccion());
                 Transaction save = transactionRepository.save(transaction.get());
