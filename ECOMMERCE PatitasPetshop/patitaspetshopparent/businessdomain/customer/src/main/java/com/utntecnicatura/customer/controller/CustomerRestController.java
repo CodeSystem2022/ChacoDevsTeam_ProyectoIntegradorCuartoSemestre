@@ -88,7 +88,7 @@ public class CustomerRestController {
             // Si falta alguno de los parámetros requeridos, devuelve un error
             return new ResponseEntity<>("Correo o nombre y contraseña son requeridos", HttpStatus.PARTIAL_CONTENT);
         }
-        boolean existCliente = customerService.validarCredenciales(credencial.getCorreo(), credencial.getNombre(), credencial.getContraseña());
+        Optional<Customer> existCliente = customerService.validarCredenciales(credencial.getCorreo(), credencial.getNombre(), credencial.getContraseña());
         return new ResponseEntity<>(existCliente, HttpStatus.OK);
     }
 

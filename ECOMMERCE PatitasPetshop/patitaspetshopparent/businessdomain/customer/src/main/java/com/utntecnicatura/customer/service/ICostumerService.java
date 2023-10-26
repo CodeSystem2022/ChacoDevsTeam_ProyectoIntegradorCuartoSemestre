@@ -24,7 +24,7 @@ public interface ICostumerService {
 
     Customer post(Customer input);
 
-    boolean validarCredenciales(String correo, String nombre, String contraseña) throws BusinessRuleException;
+    Optional<Customer> validarCredenciales(String correo, String nombre, String contraseña) throws BusinessRuleException;
 
     void delete(Long id) throws BusinessRuleException;
 
