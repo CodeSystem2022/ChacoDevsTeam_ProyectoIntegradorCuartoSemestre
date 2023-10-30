@@ -75,6 +75,9 @@ URL: [Production](http://localhost:8888/config-client/production)
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5b876153-1f3a-413f-a37e-373138316cc2)
 
+URL: [Testing](http://localhost:8888/config-client/testing)
+
+
 ## Negocio
 
 El dominio de Negocio se compone de varios microservicios que gestionan diferentes aspectos de la aplicación. Aquí, se describen los principales microservicios de Negocio:
@@ -112,10 +115,10 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/84ba30eb-a8a4-4088-b8a1-bca3ee1cae86)
 
 ### PostgreSQL
-Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente.
+Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente (Se utilizara para entorno de testing).
 
 ### PGAdmin 4 
-Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de produccion, Se accede través de la URL [http://localhost:80](http://localhost:80)
+Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de testing, Se accede través de la URL [http://localhost:80](http://localhost:80)
         
 a. Ingresar con el usuario admin@admin.com password: qwerty 
        
