@@ -1,4 +1,4 @@
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/464369c6-e0bb-4e12-9db5-d9c248aefc7d)![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7a02875f-1ca9-4420-a1f5-7f845200a609)# CHACO DEVS TEAM - PROYECTO INTEGRADOR
+# CHACO DEVS TEAM - PROYECTO INTEGRADOR
 
 <p align="center">
     <img width="100%" src="https://user-images.githubusercontent.com/70241433/233533920-47091762-ed02-441c-bcb9-02b0112a2dc4.gif"> 
