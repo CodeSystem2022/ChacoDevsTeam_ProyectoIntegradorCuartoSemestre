@@ -1,0 +1,44 @@
+.filtros-busqueda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #c3d66d;
+    
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: Montserrat;
+  }
+  
+  .filtros-busqueda {
+    margin-right: 10px;
+  }
+  
+  .filtros-busqueda {
+    font-weight: light;
+  }
+  
+  .filtros-busqueda input[type="number"],
+  .filtros-busqueda input[type="text"] {
+    width: 100px;
+    padding: 5px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    
+    border-radius: 3px;
+    font-family: Montserrat;
+  }
+  
+  .filtros-busqueda button {
+    background-color: #1eb3ae;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Montserrat;
+  }
+  
+  .filtros-busqueda button:hover {
+    background-color: #df2222;
+  }

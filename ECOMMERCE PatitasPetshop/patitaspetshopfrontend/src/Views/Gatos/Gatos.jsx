@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getProducts } from '../../Redux/Actions/Actions';
 import Cards from '../../components/Cards/Cards';
+import '../Accesorios/Accesorios.css';
 
 const Gatos = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const Gatos = () => {
   };
 
   return (
-    <div>
+    <div className="filtros-busqueda">
       <div>
         <label htmlFor="precioMin">Precio Mínimo:</label>
         <input

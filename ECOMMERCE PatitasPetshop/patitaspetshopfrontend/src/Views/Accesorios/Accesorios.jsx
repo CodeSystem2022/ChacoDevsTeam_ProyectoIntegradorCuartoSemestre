@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getProducts } from '../../Redux/Actions/Actions';
-import Cards from '../../components/Cards/Cards';
+import '../Accesorios/Accesorios.css';
 
 const Accesorios = () => {
   const dispatch = useDispatch();
@@ -48,40 +48,39 @@ const Accesorios = () => {
   };
 
   return (
+    <div className="filtros-busqueda">
     <div>
-      <div>
-        <label htmlFor="precioMin">Precio Mínimo:</label>
-        <input
-          type="number"
-          id="precioMin"
-          name="precioMin"
-          value={precioMin}
-          onChange={handleFilterChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="precioMax">Precio Máximo:</label>
-        <input
-          type="number"
-          id="precioMax"
-          name="precioMax"
-          value={precioMax}
-          onChange={handleFilterChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="nombre">Buscar por Nombre:</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          value={nombre}
-          onChange={handleFilterChange}
-        />
-      </div>
-      <button onClick={resetFilters}>Restablecer Filtros</button>
-      <Cards allProducts={accesoriosProducts}></Cards>
+      <label htmlFor="precioMin">Precio Mínimo:</label>
+      <input
+        type="number"
+        id="precioMin"
+        name="precioMin"
+        value={precioMin}
+        onChange={handleFilterChange}
+      />
     </div>
+    <div>
+      <label htmlFor="precioMax">Precio Máximo:</label>
+      <input
+        type="number"
+        id="precioMax"
+        name="precioMax"
+        value={precioMax}
+        onChange={handleFilterChange}
+      />
+    </div>
+    <div>
+      <label htmlFor="nombre">Buscar por Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        value={nombre}
+        onChange={handleFilterChange}
+      />
+    </div>
+    <button onClick={resetFilters}>Restablecer Filtros</button>
+  </div>
   );
 };
 

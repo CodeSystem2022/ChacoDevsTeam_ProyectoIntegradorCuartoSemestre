@@ -1,0 +1,46 @@
+.SearchBar {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    align-items: center; /* Alineamos verticalmente los elementos al centro */
+  }
+  
+  .SearchBar input {
+    font-family: 'Roboto', sans-serif!important;
+    width: 500px;
+    height: 40px;
+    border-radius: 25px;
+    border-color: transparent!important;
+  }
+  
+  .btn-outline-success {
+    border-color: transparent!important;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-left: 5px;
+  }
+  
+  .btn-outline-success img {
+    height: 35px;
+    
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #f7ba66;
+    border-color: transparent!important;
+  }
+
+
+  .mostrartodos {
+    background-color: #e00e07; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    padding: 5px 10px; /* Espaciado interno del botón (arriba/abajo, izquierda/derecha) */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Añade bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse por encima del botón */
+    font-size: 13px; /* Tamaño del texto */
+    font-family: Montserrat;
+    
+  }
+  
+  .mostrartodos:hover {
+    background-color: #1eb3ae; /* Color de fondo cuando el mouse está sobre el botón */
+  }
