@@ -1,4 +1,4 @@
-# CHACO DEVS TEAM - PROYECTO INTEGRADOR
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/464369c6-e0bb-4e12-9db5-d9c248aefc7d)![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7a02875f-1ca9-4420-a1f5-7f845200a609)# CHACO DEVS TEAM - PROYECTO INTEGRADOR
 
 <p align="center">
     <img width="100%" src="https://user-images.githubusercontent.com/70241433/233533920-47091762-ed02-441c-bcb9-02b0112a2dc4.gif"> 
@@ -114,10 +114,71 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/84ba30eb-a8a4-4088-b8a1-bca3ee1cae86)
 
-### PostgreSQL
+### Persistencia de los datos
+Mediante la configuracion seteada previamente en el docker-compose.yml podemos optar en tres modos de persistencia de datos dependiendo de la rigurosidad de las pruebas:
+
+#### H2 (Development)
+
+H2 es una base de datos relacional ligera, rápida y versátil, adecuada para una variedad de aplicaciones:
+
+- Portabilidad: H2 puede funcionar en diferentes plataformas y sistemas operativos, lo que facilita su implementación en una variedad de entornos.
+
+- Rendimiento: Es conocida por su rendimiento rápido y eficiente, lo que la convierte en una opción popular para aplicaciones que requieren consultas rápidas y procesamiento de datos.
+
+- Modo Embebido: Puede integrarse fácilmente en aplicaciones Java como una biblioteca, lo que significa que puede ejecutarse en el mismo proceso que la aplicación, sin necesidad de un servidor de base de datos separado.
+
+- Compatibilidad con Estándares SQL: H2 es compatible con los estándares SQL ANSI, lo que facilita la migración de otras bases de datos relacionales a H2.
+
+- Características Avanzadas: A pesar de su tamaño compacto, H2 ofrece muchas características avanzadas como compatibilidad con procedimientos almacenados, disparadores, encriptación y replicación.
+
+- Consola Web: H2 incluye una consola web fácil de usar que permite administrar y visualizar datos de manera gráfica.
+
+<dependencies>
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+    </dependency>
+</dependencies>
+
+#### MySQL Workbench (Productivo)
+
+MySQL es un sistema de gestión de bases de datos relacional (RDBMS por sus siglas en inglés) de código abierto y gratuito. Es uno de los sistemas de bases de datos más populares en el mundo y es ampliamente utilizado en aplicaciones web y empresariales.
+
+- Base de Datos Relacional: MySQL es un sistema de base de datos relacional, lo que significa que organiza los datos en tablas relacionadas entre sí. Cada tabla consta de filas y columnas, y se pueden establecer relaciones entre diferentes tablas utilizando claves primarias y foráneas.
+
+- Lenguaje SQL: MySQL utiliza Structured Query Language (SQL) para gestionar y manipular datos. SQL es un lenguaje estándar utilizado para crear, leer, actualizar y eliminar datos en bases de datos relacionales.
+
+- Multiusuario y Multihilo: MySQL es capaz de manejar múltiples usuarios concurrentes y múltiples conexiones al mismo tiempo. También es multihilo, lo que significa que puede realizar múltiples operaciones en paralelo para mejorar el rendimiento.
+
+- Escalabilidad: MySQL es altamente escalable, lo que significa que puede manejar grandes volúmenes de datos y un alto número de usuarios simultáneos. Es adecuado tanto para aplicaciones pequeñas como para grandes sistemas empresariales.
+
+- Portabilidad: MySQL es compatible con varias plataformas, incluyendo Windows, Linux, macOS y otras. Esto significa que una base de datos MySQL creada en un sistema operativo se puede transferir y utilizar en otro sistema operativo sin problemas.
+
+- Almacenamiento de Datos Seguro: MySQL proporciona funciones de seguridad robustas para proteger los datos, incluyendo la autenticación de usuarios, la autorización basada en roles y la encriptación de datos para mantener la confidencialidad.
+
+- Comunidad Activa: MySQL tiene una comunidad de usuarios y desarrolladores muy activa. Esto significa que hay una gran cantidad de recursos, documentación y soporte disponibles en línea.
+
+- Motor de Almacenamiento: MySQL permite utilizar diferentes motores de almacenamiento para sus tablas, como InnoDB (el motor de almacenamiento por defecto con soporte de transacciones ACID) y MyISAM (un motor de almacenamiento más antiguo, pero rápido para aplicaciones que no requieren transacciones complejas).
+
+<dependency>
+	<groupId>com.mysql</groupId>
+	<artifactId>mysql-connector-j</artifactId>
+    <scope>runtime</scope>
+</dependency>
+
+#### MySQL Workbench (Productivo)
+
+Al inicializarse los microservicios se generara automaticamente la BD (Springboot) y las tablas correspondientes para cada microservicio de negocio
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/26790e51-6489-4a72-87f2-7bb099840a6f)
+
+![n 1](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/37600620-6227-4a53-9793-1c328e6a615d)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/39335c9a-2d65-4451-bf85-a2a08283791e)
+
+#### PostgreSQL (Testing)
 Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente (Se utilizara para entorno de testing).
 
-### PGAdmin 4 
+#### PGAdmin 4 (Testing)
 Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de testing, Se accede través de la URL [http://localhost:80](http://localhost:80)
         
 a. Ingresar con el usuario admin@admin.com password: qwerty 
