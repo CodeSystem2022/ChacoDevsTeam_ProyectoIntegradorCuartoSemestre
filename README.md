@@ -186,7 +186,7 @@ Recuerda configurar adecuadamente las propiedades de cada microservicio en el do
 
 Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
 
-En este caso el microservicio de transacciones estara en un ambiente productivo, implica el uso de la configuracion de base de datos de postgres
+En este caso el microservicio de transacciones estara en un ambiente productivo, implica el uso de la configuracion de base de datos de MySQL
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/7251066a-93aa-4281-b340-4be389d862c8)
 
