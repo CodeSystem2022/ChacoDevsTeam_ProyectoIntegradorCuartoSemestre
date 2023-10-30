@@ -134,12 +134,13 @@ H2 es una base de datos relacional ligera, rápida y versátil, adecuada para un
 - Consola Web: H2 incluye una consola web fácil de usar que permite administrar y visualizar datos de manera gráfica.
 
 
-	<dependencies>
+      <dependencies>
     	     <dependency>
        		 <groupId>com.h2database</groupId>
        	         <artifactId>h2</artifactId>
                  </dependency>
        </dependencies>
+
 
 #### MySQL Workbench (Productivo)
 
@@ -161,14 +162,12 @@ MySQL es un sistema de gestión de bases de datos relacional (RDBMS por sus sigl
 
 - Motor de Almacenamiento: MySQL permite utilizar diferentes motores de almacenamiento para sus tablas, como InnoDB (el motor de almacenamiento por defecto con soporte de transacciones ACID) y MyISAM (un motor de almacenamiento más antiguo, pero rápido para aplicaciones que no requieren transacciones complejas).
 
-
-	<dependency>
-		<groupId>com.mysql</groupId>
-		<artifactId>mysql-connector-j</artifactId>
-    	        <scope>runtime</scope>
-	</dependency>
-
-
+        <dependency>
+		    <groupId>com.mysql</groupId>
+		    <artifactId>mysql-connector-j</artifactId>
+	     <scope>runtime</scope>
+       </dependency>
+      
 #### MySQL Workbench (Productivo)
 
 Al inicializarse los microservicios se generara automaticamente la BD (Springboot) y las tablas correspondientes para cada microservicio de negocio
