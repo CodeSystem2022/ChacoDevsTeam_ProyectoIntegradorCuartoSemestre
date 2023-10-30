@@ -142,7 +142,7 @@ H2 es una base de datos relacional ligera, rápida y versátil, adecuada para un
        </dependencies>
 
 
-#### MySQL Workbench (Productivo)
+#### MySQL (Productivo)
 
 MySQL es un sistema de gestión de bases de datos relacional (RDBMS por sus siglas en inglés) de código abierto y gratuito. Es uno de los sistemas de bases de datos más populares en el mundo y es ampliamente utilizado en aplicaciones web y empresariales.
 
