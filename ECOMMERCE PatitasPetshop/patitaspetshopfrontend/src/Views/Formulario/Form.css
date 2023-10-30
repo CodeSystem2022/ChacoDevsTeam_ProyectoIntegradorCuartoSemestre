@@ -1,0 +1,57 @@
+.registrocaja{
+
+    background-image: url('/public/Fondoregistro.jpg');
+
+}
+.registro-style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Montserrat;
+}
+  
+.registro-style h1 {
+    font-size: 50px;
+}
+  
+.registro-style form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+  
+.registro-style label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+  
+.registro-style input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+  
+  .registro-style div {
+    margin-top: 5px;
+}
+  
+.registro-style input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #e7bf69;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.registro-style p {
+    color: #ff0000;
+    margin: 0;
+}

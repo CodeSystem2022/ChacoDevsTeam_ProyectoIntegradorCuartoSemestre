@@ -1,0 +1,34 @@
+.swiper-container {
+  display: flex;
+  justify-content: center!important;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  margin-left: 100px;
+}
+
+.iconitos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.iconitos img {
+  margin: 0 10px;
+}
+
+.bloque{
+  background-color: #c3d66d;
+  height: 60px;
+  font-family: Montserrat;
+  text-align: center;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.bloque h2 {
+  font-size: 40px;
+  margin: 0 auto;
+}

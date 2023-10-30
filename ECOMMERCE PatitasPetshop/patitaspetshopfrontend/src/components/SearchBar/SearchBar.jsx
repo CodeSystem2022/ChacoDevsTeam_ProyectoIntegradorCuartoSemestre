@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../Cards/Card.css'
+import '../SearchBar/SearchBar.css'
 import {useDispatch} from 'react-redux'
 import { alimentoByNombre, getProducts } from '../../Redux/Actions/Actions';
 
@@ -39,7 +39,7 @@ const handleShowAll=()=>{
 				onKeyDown={handleEnterkey}
       ></input>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" > <img src="lupa-03.png" height={35} alt="Buscar"onClick={handleSubmit}></img></button>
-      <button onClick={handleShowAll}>Mostrar todos</button>
+      <button class="mostrartodos" onClick={handleShowAll}>Mostrar todos</button>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
-import '../Cards/Card.css';
+import '../NavBar/NavBar.css';
 
 const NavBar = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -99,7 +99,7 @@ const NavBar = () => {
             <NavLink to='/sucursales'>Sucursales</NavLink>
           </li>
           <li>
-            <NavLink to='/carrito'>Carrito de compras</NavLink>
+            <NavLink to='/carrito'> <img className='carrito' src="carrito-03.png" height={30} alt="" /></NavLink>
           </li>
           {isLoggedIn ? (
             <>

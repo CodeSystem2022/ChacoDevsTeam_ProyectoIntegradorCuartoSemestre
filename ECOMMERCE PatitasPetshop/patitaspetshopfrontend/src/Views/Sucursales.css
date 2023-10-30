@@ -1,0 +1,42 @@
+.sucursales-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('/public/Fondo.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Montserrat;
+}
+  
+.sucursales-container h1 {
+    font-size: 24px;
+    text-align: center;
+    font-family: Montserrat;
+    
+}
+  
+.sucursales-container h5 {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+.sucursal {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.sucursal h2 {
+    font-size: 20px;
+    margin-top: 0;
+    font-size:x-large;
+    color: #1eb3ae;
+}
+  
+.sucursal p {
+    font-size: 16px;
+    margin: 5px 0;
+}
