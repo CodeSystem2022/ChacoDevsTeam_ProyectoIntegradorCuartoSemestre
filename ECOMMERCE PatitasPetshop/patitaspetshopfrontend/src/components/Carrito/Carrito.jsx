@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCarritoContexto } from '../../CarritoContext/CarritoContext';
-import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import ListaCarrito from '../ListaCarrito/ListaCarrito';
-import { getProducts } from '../../Redux/Actions/Actions';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { postPago } from '../../Redux/Actions/Actions'; // Asume que tienes una acción para realizar el pago
 
 const Carrito = () => {
-  const { carrito, totalPrecio} = useCarritoContexto();
+  const dispatch = useDispatch();
+  const { carrito, totalPrecio } = useCarritoContexto();
+  
+  // Recupera los datos del cliente y el monto total del localStorage
+  const idCliente = localStorage.getItem('userId');
+  const montoTotal = totalPrecio(); // Reemplaza con el monto total de la compra
 
-  const order = {
-    comprador: {},
-    items: carrito.map((producto) => ({
-      id: producto.id,
-      nombre: producto.nombre,
-      precio: producto.precio,
-      cantidad: producto.quantity,
-    })),
-    total: totalPrecio(),
+  const [state] = useState({
+    idCliente: idCliente, // Utiliza el ID del cliente obtenido
+    monto: montoTotal, // Utiliza el monto total de la compra
+    /*producttransactions: {
+      items: carrito.map(producto => ({
+        idProducto: producto.id, // ID del producto que se está comprando
+        cantidadProducto: producto.quantity // Cantidad que se compra
+      }))
+    }Esta forma que esta comentada es la de un obj con array*/
+    producttransactions: carrito.map(producto => ({
+      idProducto: producto.id, // ID del producto que se está comprando
+      cantidadProducto: producto.quantity // Cantidad que se compra
+    }))
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    //aca ves lo que envia al back
+    console.log(state.producttransactions)
+    // Envía la solicitud de pago al servidor utilizando Redux y la acción postPago
+    dispatch(postPago(state));
   };
 
-  // Verifica si carrito es undefined o tiene una longitud de 0
+  // Verifica si el carrito está vacío
   if (!carrito || carrito.length === 0) {
     return (
       <>
@@ -29,24 +46,6 @@ const Carrito = () => {
     );
   }
 
-  const handleClic = async () => {
-    try {
-      // Realiza la solicitud POST a la URL de la orden de compra
-      const response = await axios.post('http://localhost:8082/transaction/nuevaTransaccion', order);
-
-      if (response.status === 200) {
-        alert('Orden de compra generada con éxito');
-        
-      } else {
-
-        alert('Hubo un error al procesar la orden de compra');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Hubo un error al procesar la orden de compra');
-    }
-  };
-  
   return (
     <>
       {
@@ -55,10 +54,12 @@ const Carrito = () => {
       <p>
         Total:${totalPrecio()}
       </p>
-      <NavLink to="/identificacion">
-          <button >Proceder al pago</button>
-      </NavLink>
-     
+      <form onSubmit={handleSubmit}>
+        <Link to="/entrega">
+          <button type="submit" onClick={handleSubmit}>Proceder al pago</button>
+        </Link>
+        
+      </form>
     </>
   );
 };

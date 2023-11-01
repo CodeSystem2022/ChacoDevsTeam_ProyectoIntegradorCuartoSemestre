@@ -1,76 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import '../NavBar/NavBar.css';
 
 const NavBar = () => {
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
-
-  const handleLogin = async () => {
-    // Realizar una solicitud HTTP para validar el inicio de sesión con la base de datos
-    try {
-      const response = await fetch('http://localhost:8081/customer/validarCredenciales', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        // El inicio de sesión fue exitoso
-        setMessage('Ha ingresado correctamente');
-        setIsLoggedIn(true);
-        // Recupera el nombre del usuario desde la base de datos y establece el estado
-        const userData = await response.json();
-        setUserName(userData.name);
-        setShowLoginForm(false); // Oculta el formulario después de iniciar sesión
-      } else {
-        // El inicio de sesión falló
-        setMessage('Usuario no encontrado');
-      }
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-    }
-  };
+  // Verifica si el usuario ha iniciado sesión
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
   const handleLogout = () => {
-    // Restablece el estado y borra las credenciales de la sesión
-    setEmail('');
-    setPassword('');
-    setMessage('');
-    setIsLoggedIn(false);
-    setShowLoginForm(true); // Muestra el formulario después de cerrar sesión
+    // Elimina los datos de inicio de sesión del almacenamiento local
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName');
+    // Redirige al usuario a la página de inicio
+    window.location.href = '/';
   };
-
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      try {
-        const response = await fetch('http://localhost:8081/customer/buscarEmail', {
-          method: 'GET',
-          credentials: 'include', // Incluye las cookies de sesión en la solicitud
-        });
-  
-        if (response.ok) {
-          // El usuario ya está autenticado
-          setIsLoggedIn(true);
-  
-          // Obtener detalles del usuario desde la respuesta si corresponde
-          const userData = await response.json();
-          setUserName(userData.name);
-        }
-      } catch (error) {
-        console.error('Error al verificar la autenticación:', error);
-      }
-    };
-  
-    checkAuthentication();
-  }, []);
 
   return (
     <div className='navbar-cont'>
@@ -99,45 +41,17 @@ const NavBar = () => {
             <NavLink to='/sucursales'>Sucursales</NavLink>
           </li>
           <li>
+            {isLoggedIn ? ( // Renderiza el botón "Cerrar Sesión" si el usuario ha iniciado sesión
+              <button onClick={handleLogout}>Cerrar Sesión</button>
+            ) : (
+              <NavLink to='/login'>Iniciar sesión</NavLink>
+            )}
+          </li>
+          <li>
             <NavLink to='/carrito'> <img className='carrito' src="carrito-03.png" height={30} alt="" /></NavLink>
           </li>
-          {isLoggedIn ? (
-            <>
-              <li>
-                <p>Bienvenido, {userName}!</p>
-              </li>
-              <li>
-                <button className="logout-button" onClick={handleLogout}>
-                  Cerrar Sesión
-                </button>
-              </li>
-            </>
-          ) : (
-            <li>
-              <button className="login-button" onClick={() => setShowLoginForm(true)}>
-                Iniciar Sesión
-              </button>
-            </li>
-          )}
-        </ul>
+         </ul>
       </nav>
-      {showLoginForm && (
-        <div className="login-form">
-          <h2>Iniciar Sesión</h2>
-          <form>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Contraseña:</label>
-              <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <button type="button" onClick={handleLogin}>Iniciar Sesión</button>
-          </form>
-          {message && <p>{message}</p>}
-        </div>
-      )}
     </div>
   );
 };
