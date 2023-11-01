@@ -12,7 +12,7 @@ const Identificacion = () => {
     celular: '',
   });
 
-  const [estaRegistrado, setEstaRegistrado] = useState(false);
+  const [ setEstaRegistrado] = useState(false);
 
   // Simula que el usuario está registrado, ajusta esto según tu lógica real
   const usuarioRegistrado = true;

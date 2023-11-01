@@ -30,6 +30,20 @@ export function postUser(state){
     }
 }
 
+export function postPago(state){
+    return async function(){
+        try {
+            await axios.post('http://localhost:8082/transaction/nuevaTransaccion',state)
+            console.log(state)
+            console.log("Pago registrado")
+
+        } catch (error) {
+            console.log(error)
+           }
+    }
+}
+
+
 export function alimentoByNombre(nombre){
     return async dispatch =>{
         const endPoint=(`http://localhost:8083/product/obtenerProducto/nombre/${nombre}`)

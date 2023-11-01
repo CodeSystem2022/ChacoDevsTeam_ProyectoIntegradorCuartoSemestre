@@ -17,6 +17,7 @@ import CarritoProvider from './CarritoContext/CarritoContext';
 import Identificacion from './Views/Identificacion/Identificacion';
 import Entrega from './Views/Entrega/Entrega';
 import Pagos from './Views/Pagos/Pagos';
+import Login from './Views/Login/Login';
 
 
 
@@ -39,6 +40,7 @@ function App() {
               <Route path='/identificacion' component={Identificacion} />
               <Route path='/entrega' component={Entrega} />
               <Route path='/pagos' component={Pagos} />
+              <Route path='/login' component={Login} />
             </Switch>
           </CarritoProvider>
         </BrowserRouter>
