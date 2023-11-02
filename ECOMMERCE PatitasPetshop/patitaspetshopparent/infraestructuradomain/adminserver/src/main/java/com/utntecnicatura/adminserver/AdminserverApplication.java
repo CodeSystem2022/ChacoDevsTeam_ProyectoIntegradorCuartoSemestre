@@ -53,21 +53,6 @@ import java.util.Arrays;
 @EnableAutoConfiguration(exclude = ReactiveManagementWebSecurityAutoConfiguration.class)
 @Configuration
 public class AdminserverApplication {
-
-	private static final String[] AUTH_WHITELIST = {
-			"/swagger-resources",
-			"/swagger-resources/**",
-			"/configuration/ui",
-			"/configuration/security",
-			"/swagger-ui.html",
-			"/webjars/**",
-			"/v3/api-docs/**",
-			"/api/public/**",
-			"/api/public/authenticate",
-			"/actuator/*",
-			"/swagger-ui/**"
-	};
-
 	public static void main(String[] args) {
 		SpringApplication.run(AdminserverApplication.class, args);
 	}
@@ -96,6 +81,7 @@ public class AdminserverApplication {
 	@Bean
 	SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
 		http.cors(cors -> cors.disable());
+		http.headers().frameOptions().disable();
 		return http.build();
 	}
 

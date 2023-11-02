@@ -34,8 +34,6 @@ public class ImplTransactionService implements ITransactionService {
     TransactionRepository transactionRepository;
     @Autowired
     UtilsTransaction utilsTransaction;
-    @Autowired
-    MicroserviceClients microserviceClients;
 
     @Override
     public Optional<Transaction> findById(Long id) {
@@ -67,7 +65,6 @@ public class ImplTransactionService implements ITransactionService {
         if(transaction.isPresent()){
             if (utilsTransaction.validarMonto(input.getMonto())) {
                 transaction.get().setDescripcion(input.getDescripcion());
-                transaction.get().setReferencia(input.getReferencia());
                 transaction.get().setMonto(input.getMonto());
                 transaction.get().setCanal(input.getCanal());
                 transaction.get().setFechaTransaccion(input.getFechaTransaccion());
@@ -83,6 +80,6 @@ public class ImplTransactionService implements ITransactionService {
 
     @Override
     public void delete(Transaction transaction) {
-
+        transactionRepository.delete(transaction);
     }
 }

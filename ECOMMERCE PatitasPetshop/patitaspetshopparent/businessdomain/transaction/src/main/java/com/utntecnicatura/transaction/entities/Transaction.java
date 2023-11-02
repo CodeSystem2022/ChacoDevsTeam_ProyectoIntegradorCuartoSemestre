@@ -6,6 +6,7 @@ import lombok.Data;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 import java.util.List;
@@ -20,8 +21,9 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String referencia;
     private long idCliente;
+    @CreationTimestamp
+    @Column(name = "fecha_transaccion", updatable = false)
     private Date fechaTransaccion;
     private double monto;
     private String descripcion;
