@@ -1,5 +1,6 @@
 package com.utntecnicatura.transaction.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utntecnicatura.transaction.utils.enums.Medio;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Transaction {
     private long idCliente;
     @CreationTimestamp
     @Column(name = "fecha_transaccion", updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaTransaccion;
     private double monto;
     private String descripcion;
