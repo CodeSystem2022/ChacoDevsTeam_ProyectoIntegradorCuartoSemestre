@@ -41,6 +41,18 @@ public class ImplTransactionService implements ITransactionService {
     }
 
     @Override
+    public List<Transaction> findTransactionByIdCustomer(Long idCustomer) throws BusinessRuleException {
+        List<Transaction> listaTransacciones = transactionRepository.findTransactionByIdCustomer(idCustomer);
+        if(!listaTransacciones.isEmpty()) {
+            return listaTransacciones;
+        } else {
+            throw new BusinessRuleException("1035",
+                    "Error de validacion, El cliente n°:"+ idCustomer +" no posee transacciones",
+                    HttpStatus.PRECONDITION_FAILED);
+        }
+    }
+
+    @Override
     public Transaction save(Transaction transaction) throws UnknownHostException, BusinessRuleException {
         utilsTransaction.validarCliente(transaction);
         utilsTransaction.validarProductos(transaction);

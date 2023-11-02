@@ -13,6 +13,7 @@ public interface ITransactionService {
     List<Transaction> findAll();
 
     Optional<Transaction> findById(Long id);
+    List<Transaction> findTransactionByIdCustomer(Long id) throws BusinessRuleException;
 
     Transaction put(Transaction input) throws BusinessRuleException;
 

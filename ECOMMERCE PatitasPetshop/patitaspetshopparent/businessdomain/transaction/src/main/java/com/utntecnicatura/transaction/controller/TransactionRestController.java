@@ -42,11 +42,25 @@ public class TransactionRestController {
             return ResponseEntity.ok(findAll);
         }
     }
-    @GetMapping("/transaccionesCliente/{id}")
+    @GetMapping("/transacciones/{id}")
     public ResponseEntity<Transaction> get(@PathVariable long id){
         logger.info("Se consulto la transaccion N°"+id);
         return iTransactionService.findById(id).map(x->ResponseEntity.ok(x))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/transaccionesCliente/{id}")
+    public ResponseEntity<List<Transaction>> getTransactionCustomer(@PathVariable long id) throws BusinessRuleException {
+        logger.info("Se consulto las transacciones del cliente N° " + id);
+        List<Transaction> findTransacciones = iTransactionService.findTransactionByIdCustomer(id);
+        if(findTransacciones==null||findTransacciones.isEmpty()) {
+            logger.info("No se obtuvieron resultados");
+            return ResponseEntity.noContent().build();
+        }else{
+            logger.info("Se obtuvieron las siguientes transacciones: ");
+            findTransacciones.stream().forEach(elemento -> logger.info("ID: " + elemento.getId()));
+            return ResponseEntity.ok(findTransacciones);
+        }
     }
 
     @PutMapping("/modificarTransaccion/{id}")
