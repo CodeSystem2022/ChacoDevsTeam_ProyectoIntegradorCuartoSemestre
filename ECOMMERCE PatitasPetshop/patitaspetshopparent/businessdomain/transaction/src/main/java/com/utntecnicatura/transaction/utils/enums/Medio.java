@@ -4,7 +4,7 @@ public enum Medio {
 
     MERCADO_PAGO("01", "Mercado Pago"),
     TARJETA_CREDITO("02", "Tarjeta Credito"),
-    TRANSFERENCIA("03", "Transferencia");
+    EFECTIVO("03", "Efectivo");
 
     private final String codigo;
     private final String descripcion;
