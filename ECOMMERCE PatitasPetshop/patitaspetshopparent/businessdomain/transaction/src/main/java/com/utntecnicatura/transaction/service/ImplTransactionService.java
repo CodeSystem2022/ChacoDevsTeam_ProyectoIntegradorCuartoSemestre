@@ -83,6 +83,6 @@ public class ImplTransactionService implements ITransactionService {
 
     @Override
     public void delete(Transaction transaction) {
-
+        transactionRepository.delete(transaction);
     }
 }
