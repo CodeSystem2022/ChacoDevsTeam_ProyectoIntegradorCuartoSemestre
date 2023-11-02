@@ -112,39 +112,29 @@ services:
     restart: always
 
   ##########################################################################
-  #database service
+  #mysql-workbench service
   ##########################################################################
-  postgres_db:
-    container_name: postgres
-    image: postgres:15-alpine
-    ports:
-      - 3432:5432
+  mysql-workbench:
+    image: lscr.io/linuxserver/mysql-workbench:latest
+    container_name: mysql-workbench
+    environment:
+      - CUSTOM_USER = "root"
+      - PASSWORD = "admin"
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
     volumes:
-      #allow *.sql, *.sql.gz, or *.sh and is execute only if data directory is empty
-      - ./dbfiles:/docker-entrypoint-initdb.d
-      - /var/lib/postgres_data:/var/lib/postgresql/data
-    environment:
-      #default postgres super user
-      POSTGRES_USER: postgres
-      #default passwor for postgres super user, it is only the required envvar for postgres image
-      POSTGRES_PASSWORD: qwerty
-      #main database if name is not specific thname of super user is use
-      POSTGRES_DB: postgres
-
-  ##########################################################################
-  #pgadmin service
-  ##########################################################################
-  pgadmin4:
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-      PGADMIN_DEFAULT_PASSWORD: "qwerty"
+      - /path/to/config:/config
     ports:
-      - 80:80
+      - 3001:3001
+      - 3002:3002
+    cap_add:
+      - IPC_LOCK
     depends_on:
-      - postgres_db      
-      
+      - registry-discovery
+      - configuration
+    restart: unless-stopped
+
 
 
     
