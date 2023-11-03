@@ -28,7 +28,7 @@ services:
         -Xms256M
         -Xmx256M
         -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
-        -DLOCAL_REPOSITORY=https://github.com/Renzo-Espinola/config-server-repo.git
+        -DLOCAL_REPOSITORY=https://github.com/patitaspetshop/config-server-repo.git
         #-DLOCAL_REPOSITORY=/tmp/config-server-repo
       #-Dspring.cloud.config.server.native.searchLocations=/var/config-data
     depends_on:
