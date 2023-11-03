@@ -10,7 +10,7 @@ spring:
           default-label: master
           clone-on-start: 'true'
           strictHostKeyChecking: 'false'
-          uri: https://github.com/Renzo-Espinola/config-server-repo.git
+          uri: https://github.com/patitaspetshop/config-server-repo.git
         bootstrap: 'true'
   security:
     user:
