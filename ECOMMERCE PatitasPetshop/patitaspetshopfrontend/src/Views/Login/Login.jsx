@@ -18,15 +18,20 @@ const Login = () => {
         localStorage.setItem('userName', response.data.nombre);
         // Guarda el ID del cliente en localStorage
         localStorage.setItem('userId', response.data.id);
-        alert('Inicio de sesión exitoso, haz clic para continuar al inicio');
-        // Redirige al usuario a la página "home"
-        history.push('/');
+
+        const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil(presione cancelar)?');
+        
+        if (choice) {
+          history.push('/');
+        } else {
+          history.push('/perfil');
+        }
       } else {
         setError('Correo electrónico no encontrado');
       }
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
-      setError('Error en la solicitud de inicio de sesión');
+      setError('Usuario o contraseña incorrecta, intente nuevamente por favor');
     }
   };
 
@@ -44,7 +49,10 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div> <label >Contraseña:</label> <input type="password" /> </div>
+        <div>
+          <label>Contraseña:</label>
+          <input type="password" />
+        </div>
         <button type="button" onClick={handleLogin}>
           Iniciar Sesión
         </button>

@@ -18,6 +18,7 @@ import Identificacion from './Views/Identificacion/Identificacion';
 import Entrega from './Views/Entrega/Entrega';
 import Pagos from './Views/Pagos/Pagos';
 import Login from './Views/Login/Login';
+import Perfil from './components/Perfil/Perfil';
 
 
 
@@ -41,6 +42,7 @@ function App() {
               <Route path='/entrega' component={Entrega} />
               <Route path='/pagos' component={Pagos} />
               <Route path='/login' component={Login} />
+              <Route path='/perfil' component={Perfil} />
             </Switch>
           </CarritoProvider>
         </BrowserRouter>
