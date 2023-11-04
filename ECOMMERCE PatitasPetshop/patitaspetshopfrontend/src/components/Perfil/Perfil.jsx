@@ -3,22 +3,8 @@ import { useEffect, useState } from "react";
 
 const Perfil = () => {
   const [historialCompras, setHistorialCompras] = useState([]);
-  const [producto, setProducto] = useState({});
+  const [productoInfo, setProductoInfo] = useState({});
   const idCliente = localStorage.getItem('userId');
-
-  const cargarProducto = async (id) => {
-    try {
-      const response = await axios.get(`http://localhost:8083/product/obtenerProducto/${id}`);
-      if (response.status === 200) {
-        const productoData = response.data;
-        setProducto(productoData);
-      } else {
-        console.error('Error al obtener la información del producto');
-      }
-    } catch (error) {
-      console.error('Error al obtener la información del producto:', error);
-    }
-  };
 
   useEffect(() => {
     const fetchHistorialCompras = async () => {
@@ -27,6 +13,26 @@ const Perfil = () => {
         if (response.status === 200) {
           const historialComprasData = response.data;
           setHistorialCompras(historialComprasData);
+
+          // Obtener los IDs de producto únicos del historial de compras
+          const uniqueProductIds = Array.from(new Set(historialComprasData.map(compra => compra.producttransactions.map(producto => producto.id)).flat()));
+
+          // Realizar solicitudes para obtener información de productos
+          const productoPromises = uniqueProductIds.map(async (productId) => {
+            const productResponse = await axios.get(`http://localhost:8083/product/obtenerProducto/${productId}`);
+            return { id: productId, nombre: productResponse.data.nombre };
+          });
+
+          const productosInfo = await Promise.all(productoPromises);
+
+          // Crear un mapa para buscar el nombre del producto por ID
+          const productoInfoMap = {};
+          productosInfo.forEach(info => {
+            productoInfoMap[info.id] = info.nombre;
+          });
+
+          // Actualizar el estado con la información del producto
+          setProductoInfo(productoInfoMap);
         } else {
           console.error('Error al obtener el historial de compras');
         }
@@ -57,9 +63,7 @@ const Perfil = () => {
                     {compra.producttransactions.map((productoTransaccion) => (
                       <li key={productoTransaccion.id}>
                         <div>Cantidad: {productoTransaccion.cantidadProducto}</div>
-                        <div>
-                           Nombre:{}
-                        </div>
+                        <div>Nombre: {productoInfo[productoTransaccion.id] || 'Cargando...'}</div>
                       </li>
                     ))}
                   </ul>

@@ -14,7 +14,6 @@ const ListaCarrito = ({product}) => {
         <img src={product.imagen} alt={product.nombre} />
         <div>
           <p>Nombre: {product.nombre}</p>
-          console.log({product.nombre})
           <p>Cantidad: {product.quantity}</p>
           <p>Precio unitario: {product.precio}</p>
           <p>Subtotal: ${product.quantity * product.precio}</p>
