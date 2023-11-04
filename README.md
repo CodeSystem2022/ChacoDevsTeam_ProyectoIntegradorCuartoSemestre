@@ -233,7 +233,7 @@ Una vez realizado el proceso de maven en los 6 microservicios, se debera abrir u
 
 1- Iniciar los contenedores dockerizados:
 
-docker-compose up -d
+`docker-compose up -d`
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
 
@@ -241,22 +241,23 @@ Cuando veamos en el log de consola que se registraron en Eureka los mcs de negoc
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/1c5332bf-61a9-4c29-b504-1776a720b05e)
 
-bd-transactions | 2023-11-04T04:47:41.783Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 - registration status: 204
-id-eureka           | 2023-11-04T04:47:42.331Z  INFO 1 --- [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 with status UP (replication=true)
+`bd-transactions | 2023-11-04T04:47:41.783Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 - registration status: 204`
+
+`id-eureka           | 2023-11-04T04:47:42.331Z  INFO 1 --- [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 with status UP (replication=true)`
 
 2- En caso de realizar alguna modificacion de codigo o propiedades a algun microservicio se debera ejecutar el comando: 
 
-docker-compose up -d --force-recreate
+`docker-compose up -d --force-recreate`
 
-3- Si necesita detener los contenedores: docker-compose stop
+3- Si necesita detener los contenedores: `docker-compose stop`
 
-4- Si necesita eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
+4- Si necesita eliminar los volumenes: `docker-compose rm` (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
 
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el docker-compose para garantizar su correcto funcionamiento (Development/Production), tan solo cambiando un valor a una variable :
 
--Dspring.profiles.active=production 
+`-Dspring.profiles.active=production` 
 
--Dspring.profiles.active=development
+`-Dspring.profiles.active=development`
 
 Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
 
