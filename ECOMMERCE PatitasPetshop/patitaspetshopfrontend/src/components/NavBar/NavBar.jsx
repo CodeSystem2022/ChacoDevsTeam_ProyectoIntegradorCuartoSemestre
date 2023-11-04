@@ -41,6 +41,10 @@ const NavBar = () => {
             <NavLink to='/sucursales'>Sucursales</NavLink>
           </li>
           <li>
+            <NavLink to='/perfil'>Perfil de usuario</NavLink>
+          </li>
+
+          <li>
             {isLoggedIn ? ( // Renderiza el botón "Cerrar Sesión" si el usuario ha iniciado sesión
               <button onClick={handleLogout}>Cerrar Sesión</button>
             ) : (
