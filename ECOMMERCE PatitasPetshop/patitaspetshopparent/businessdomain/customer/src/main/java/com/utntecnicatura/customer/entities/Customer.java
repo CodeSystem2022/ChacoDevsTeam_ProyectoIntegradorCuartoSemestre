@@ -31,12 +31,10 @@ public class Customer {
     private String email;
     private String contraseña;
     @CreationTimestamp
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Argentina/Buenos_Aires")
     @Column(name = "fecha_registro", updatable = false)
     private LocalDateTime fechaRegistro;
 
     @UpdateTimestamp
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Argentina/Buenos_Aires")
     @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
 
