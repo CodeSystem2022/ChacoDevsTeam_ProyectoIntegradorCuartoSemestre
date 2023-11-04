@@ -111,10 +111,10 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 - Vinculación de datos de clientes y productos en cada transacción.
  Se accede través de la URL [http://localhost:8082/swagger-ui/index.html#/](http://localhost:8082/swagger-ui/index.html#/)
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/84ba30eb-a8a4-4088-b8a1-bca3ee1cae86)
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/4f6993f8-f65f-46c6-8d46-f30f7f32d0c8)
 
 ### Persistencia de los datos
-Mediante la configuracion seteada previamente en el docker-compose.yml podemos optar en tres modos de persistencia de datos dependiendo de la rigurosidad de las pruebas:
+Mediante la configuracion seteada previamente en el docker-compose.yml podemos optar en dos modos de persistencia de datos dependiendo de la rigurosidad de las pruebas:
 
 #### H2 (Development)
 
