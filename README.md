@@ -48,9 +48,9 @@ Spring Admin es una herramienta que proporciona un panel de administración para
 
  a.Accede al panel de administración de Spring Admin para monitorear y gestionar los microservicios.
 
- ![7](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/ae0db602-9a02-47fe-b9a7-0a4f331b0a44)
+ ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/030074cc-3e45-4d4d-b358-40b53700e6dc)
 
- ![8](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cbd7b6ea-2e9c-4690-8e63-dddf799e6d71)
+ ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/42a248b4-40a6-4f84-8688-fc232cf26144)
 
 ### Eureka Discovery
 
