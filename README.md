@@ -89,7 +89,9 @@ El microservicio CUSTOMER se encarga de la gestión de clientes y ofrece las sig
 - Métodos para controlar el stock de productos relacionados con cada cliente.
  Se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5e04b34c-969f-4117-bf95-2e5035d6e34e)
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/186b3a4f-baa8-42f2-a5ef-058abd447bcf)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/f711c9cd-82b3-4db6-a38c-a5896c35ce4f)
 
 ### PRODUCT
 
