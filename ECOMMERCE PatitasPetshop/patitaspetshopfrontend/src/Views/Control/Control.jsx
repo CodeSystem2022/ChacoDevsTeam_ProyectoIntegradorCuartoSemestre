@@ -60,7 +60,7 @@ const Control = () => {
           <label htmlFor="stock">Stock:</label>
           <input type="number" id="stock" name="stock" value={newProduct.stock} onChange={handleChange} />
         </div>
-        <button type="submit">Cargar Producto</button>
+        <button type="submit">Registrar Producto</button>
       </form>
     </div>
   );
