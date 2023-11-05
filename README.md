@@ -48,9 +48,9 @@ Spring Admin es una herramienta que proporciona un panel de administración para
 
  a.Accede al panel de administración de Spring Admin para monitorear y gestionar los microservicios.
 
- ![7](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/ae0db602-9a02-47fe-b9a7-0a4f331b0a44)
+ ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/030074cc-3e45-4d4d-b358-40b53700e6dc)
 
- ![8](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cbd7b6ea-2e9c-4690-8e63-dddf799e6d71)
+ ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/42a248b4-40a6-4f84-8688-fc232cf26144)
 
 ### Eureka Discovery
 
@@ -73,10 +73,7 @@ Production: Nos muestra las configuraciones para un ambiente de de produccion
 
 URL: [Production](http://localhost:8888/config-client/production)
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5b876153-1f3a-413f-a37e-373138316cc2)
-
-URL: [Testing](http://localhost:8888/config-client/testing)
-
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/92d0e198-0c0d-4e51-964a-1f7ce123f5e2)
 
 ## Negocio
 
@@ -92,7 +89,9 @@ El microservicio CUSTOMER se encarga de la gestión de clientes y ofrece las sig
 - Métodos para controlar el stock de productos relacionados con cada cliente.
  Se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/5e04b34c-969f-4117-bf95-2e5035d6e34e)
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/186b3a4f-baa8-42f2-a5ef-058abd447bcf)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/f711c9cd-82b3-4db6-a38c-a5896c35ce4f)
 
 ### PRODUCT
 
@@ -112,10 +111,10 @@ El microservicio TRANSACTIONS se encarga de gestionar las transacciones de compr
 - Vinculación de datos de clientes y productos en cada transacción.
  Se accede través de la URL [http://localhost:8082/swagger-ui/index.html#/](http://localhost:8082/swagger-ui/index.html#/)
 
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/84ba30eb-a8a4-4088-b8a1-bca3ee1cae86)
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/4f6993f8-f65f-46c6-8d46-f30f7f32d0c8)
 
 ### Persistencia de los datos
-Mediante la configuracion seteada previamente en el docker-compose.yml podemos optar en tres modos de persistencia de datos dependiendo de la rigurosidad de las pruebas:
+Mediante la configuracion seteada previamente en el docker-compose.yml podemos optar en dos modos de persistencia de datos dependiendo de la rigurosidad de las pruebas:
 
 #### H2 (Development)
 
@@ -177,51 +176,58 @@ Al inicializarse los microservicios se generara automaticamente la BD (Springboo
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/39335c9a-2d65-4451-bf85-a2a08283791e)
 
-#### PostgreSQL (Testing)
-Mediante el docker-compose se genera una contenedor con un imagen de Postgresql este volumen sera donde se guarden los datos permanentemente (Se utilizara para entorno de testing).
+#### MySQL Workbench https://localhost:3001 (Productivo)
 
-#### PGAdmin 4 (Testing)
-Mediante el docker-compose se genera una contenedor con un imagen de PGAdmin 4 en el cual podremos acceder al schema de testing, Se accede través de la URL [http://localhost:80](http://localhost:80)
-        
-a. Ingresar con el usuario admin@admin.com password: qwerty 
-       
-![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cb96bb22-5371-4dce-bac1-ca745a94f96b)
-       
-Esta seccion se puede modificar desde el docker-compose
-       
-![1](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/afafed3e-e313-40c5-8c2b-585df3a5db8a)
-       
-b. Una vez ingresado se debe registrar un server nuevo:
-       
-![2](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/26a475cb-545f-499a-9183-f67b6fffa8b6)
-       
-c. Configurar los siguientes campos de la siguiente manera:     
-        
-![3](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/6cda4cf0-e3e4-4572-b3b5-73711f270a4a)
-        
-![4](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/8ad154db-e91a-4853-97e1-e5ebf546f244)
-       
-d. Luego SAVE
-       
-e.Si todo salio correcto y los microservicios de COSTUMER PRODUCT Y TRANSACTION se iniciaron correctamente se tendrian que haber creado sus correspondientes tablas en el esquema "SPRINGBOOTSCHEMA"
-       
-![5](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/a0539540-9ce2-411a-9012-e12b805e16b8)
+Tambien se cuenta con la posibildad de ingresar al aplicativo de MySQL Workbench mediante la siguiente URL: https://localhost:3001 (*NOTA: prestar atencion al https posee la s al final*)
+
+1. Ingresar a la url  https://localhost:3001
+   
+	a. En caso de advertencia de seguridad realizar los siguientes pasos:
+
+	1. Clickear en Configuracion avanzada
+   
+ 	2. Acceder a locahost
+   
+	![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/cd4b8ec3-e889-4791-a7b7-d3eceb0e6af7)
+
+3. Si accedemos por primera vez al entorno de MySQL Workbench, debemos realizar la configuracion de la conexion con la BD
+   	a. Clickeamos en el + MySQL Connections y configuramos de la siguiente manera:
+   	1. Connection name: patitaspetshop connection
+   	2. hostname: host.docker.internal
+   	3. port: 3306
+   	4. username: root
+   	5. password: admin
+   
+![n 2](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/1bb4d2a0-f70e-454f-ba20-ce669f09aa68)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/f11a149c-4085-4d55-8318-aa047a7d750f)
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/fe168338-3445-4645-abe6-8d03dfc536cb)
+
 
 ## Instrucciones de Uso
 
 Para utilizar esta infraestructura de microservicios, sigue estos pasos:
 
 1. Clona este repositorio a tu máquina local.
+   
+- Es requerido tener previamente instaldo DOCKER y JAVA 17
+  
+- Validar que en la estructura del proyecto este seteado SDK JAVA 17
 
-2. Inicia los componentes de infraestructura y negocio (Spring Admin, Eureka Discovery, Spring Config, customer, product ,transaction) utilizando Docker Compose en modo daemon (background) con el siguiente comando:
+  ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/6e48f2b2-d9d9-4b1c-ba05-d7129b477b64)
+
+2. Debemos crear las imagenes de docker mediante maven
   
    a. Se debe correr el comando de mvn clean install a todos los microservicios comenzando por los de infraestructura y luego los de negocio.
 
     b. Tambien mediante las tareas de maven que nos proporciona Intellij IDEA, CLEAN -> COMPILE -> INSTALL
    
-   ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/921b9d8d-ebed-4bfc-b84a-1627c6a5bb07)
+   ![n3](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/357ee2ab-7bf5-4689-9351-303f8e319f61)
    
    c. Esto ira generando las imagenes de docker, se debe realizar solo una vez por cada microservicio.
+
+3. Inicia los componentes de infraestructura y negocio (Spring Admin, Eureka Discovery, Spring Config, customer, product ,transaction) utilizando Docker Compose en modo daemon (background) con el siguiente comando:
    
 #### Comandos docker de utilidad:
 
@@ -229,23 +235,31 @@ Una vez realizado el proceso de maven en los 6 microservicios, se debera abrir u
 
 1- Iniciar los contenedores dockerizados:
 
-docker-compose up -d
+`docker-compose up -d`
 
 Donde se iran iniciando cada microservicio en el orden determinado para que primero se levanten los de infraestructura y por ultimo los de negocio.
 
+Cuando veamos en el log de consola que se registraron en Eureka los mcs de negocio, esto nos indicara que ya estan operativos para su uso.
+
+![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/1c5332bf-61a9-4c29-b504-1776a720b05e)
+
+`bd-transactions | 2023-11-04T04:47:41.783Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 - registration status: 204`
+
+`id-eureka           | 2023-11-04T04:47:42.331Z  INFO 1 --- [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BUSINESSDOMAIN-TRANSACTION/f9b7cd47c6eb:businessdomain-transaction:8082 with status UP (replication=true)`
+
 2- En caso de realizar alguna modificacion de codigo o propiedades a algun microservicio se debera ejecutar el comando: 
 
-docker-compose up -d --force-recreate
+`docker-compose up -d --force-recreate`
 
-3- Si necesita detener los contenedores: docker-compose stop
+3- Si necesita detener los contenedores: `docker-compose stop`
 
-4- Si necesita eliminar los volumenes: docker-compose rm (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
+4- Si necesita eliminar los volumenes: `docker-compose rm` (Tener cuidado con el siguiente comando al eliminar un volumen puede perder la base de postgresql)
 
 Recuerda configurar adecuadamente las propiedades de cada microservicio en el docker-compose para garantizar su correcto funcionamiento (Development/Production), tan solo cambiando un valor a una variable :
 
--Dspring.profiles.active=production 
+`-Dspring.profiles.active=production` 
 
--Dspring.profiles.active=development
+`-Dspring.profiles.active=development`
 
 Como cada microservicio es independiente tenemos la chance de estar trabajando algunos en modo productivo o en modo desarrollo.
 

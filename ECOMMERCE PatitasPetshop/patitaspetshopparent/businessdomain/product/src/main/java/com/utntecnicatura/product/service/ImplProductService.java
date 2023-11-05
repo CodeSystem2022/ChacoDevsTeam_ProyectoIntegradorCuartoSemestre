@@ -98,6 +98,7 @@ public class ImplProductService implements IProductService {
             find.setNombre(input.getNombre()!=null?input.getNombre(): find.getNombre());
             find.setPrecio(input.getPrecio()>0?input.getPrecio(): find.getPrecio());
             find.setStock(input.getStock()>0?input.getStock(): find.getStock());
+            find.setImagen(input.getImagen());
             return productRepository.save(find);
         }else{
             throw new ProductException.ProductNotFoundException("error-1001",

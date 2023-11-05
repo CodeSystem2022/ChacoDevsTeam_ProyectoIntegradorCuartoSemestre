@@ -7,15 +7,11 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const history = useHistory();
-  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleLogin = async () => {
     try {
       const response = await axios.get(`http://localhost:8081/customer/buscarEmail/${email}`);
       if (response.status === 200) {
-        // Verifica si el usuario es admin
-        const isAdminUser = email === 'admin@admin';
-        
         // Guarda el estado de inicio de sesión en localStorage
         localStorage.setItem('isLoggedIn', 'true');
         // Guarda el nombre del usuario en localStorage
@@ -23,16 +19,12 @@ const Login = () => {
         // Guarda el ID del cliente en localStorage
         localStorage.setItem('userId', response.data.id);
 
-        if (isAdminUser) {
-          setIsAdmin(true);
-          history.push('/admin');
+        const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil(presione cancelar)?');
+        
+        if (choice) {
+          history.push('/');
         } else {
-          const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil(presione cancelar)?');
-          if (choice) {
-            history.push('/');
-          } else {
-            history.push('/perfil');
-          }
+          history.push('/perfil');
         }
       } else {
         setError('Correo electrónico no encontrado');
@@ -41,15 +33,6 @@ const Login = () => {
       console.error('Error al iniciar sesión:', error);
       setError('Usuario o contraseña incorrecta, intente nuevamente por favor');
     }
-  };
-
-  const handleLogout = () => {
-    // Borra el estado de inicio de sesión y redirige a la página de inicio
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('userId');
-    setIsAdmin(false);
-    history.push('/');
   };
 
   return (
@@ -75,11 +58,6 @@ const Login = () => {
         </button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-      {isAdmin && (
-        <button onClick={handleLogout}>
-          Cerrar Sesión
-        </button>
-      )}
     </div>
   );
 };

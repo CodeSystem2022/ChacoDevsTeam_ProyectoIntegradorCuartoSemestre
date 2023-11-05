@@ -40,8 +40,11 @@ const Carrito = () => {
     } else if (opcionPago === 'transferencia') {
       canal = 'EFECTIVO';
     }
+    
     // Agregar el valor de 'canal' al objeto 'state'
     state.canal = canal;
+
+    console.log(state.producttransactions);
     dispatch(postPago(state));
     // Después de confirmar la compra, redirige al usuario a la página de entrega
     history.push('/entrega');
