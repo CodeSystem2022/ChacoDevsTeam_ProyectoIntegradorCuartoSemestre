@@ -12,7 +12,7 @@ const Cards = ({ allProducts }) => {
              <Card
                nombre={producto.nombre}
                precio={producto.precio}
-               imagen={producto.imagen}
+               codigo={producto.codigo}
                id={producto.id}
              />
         </Link>

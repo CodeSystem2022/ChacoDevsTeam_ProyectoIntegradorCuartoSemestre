@@ -31,11 +31,25 @@ export function postUser(state){
 }
 
 export function postPago(state){
+    console.log(state)
     return async function(){
         try {
             await axios.post('http://localhost:8082/transaction/nuevaTransaccion',state)
             console.log(state)
             console.log("Pago registrado")
+
+        } catch (error) {
+            console.log(error)
+           }
+    }
+}
+
+export function postProducto(state){
+    return async function(){
+        try {
+            await axios.post('http://localhost:8083/product/nuevoProducto',state)
+            console.log(state)
+            console.log("Producto registrado")
 
         } catch (error) {
             console.log(error)
