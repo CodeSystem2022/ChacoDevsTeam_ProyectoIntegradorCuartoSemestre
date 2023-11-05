@@ -24,4 +24,5 @@ public class Product {
     private Tipo tipo;
     private Especie especie;
     private int stock;
+    private String imagen;
 }
