@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 const Control = () => {
   const dispatch = useDispatch();
   const [newProduct, setNewProduct] = useState({
-    codigo: '', // Cambiado el campo de código a URL de Imagen
+    codigo: '', 
     nombre: '',
     precio: 0,
     tipo: 'ALIMENTO',
     especie: 'PERRO',
     stock: 0,
+    imagen:''
   });
 
   const handleChange = (e) => {
@@ -31,7 +32,11 @@ const Control = () => {
       <h2>Registrar un Nuevo Producto</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="codigo">URL de Imagen:</label>
+          <label htmlFor="imagen">URL de Imagen:</label>
+          <input type="text" id="imagen" name="imagen" value={newProduct.imagen} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="codigo">Codigo:</label>
           <input type="text" id="codigo" name="codigo" value={newProduct.codigo} onChange={handleChange} />
         </div>
         <div>

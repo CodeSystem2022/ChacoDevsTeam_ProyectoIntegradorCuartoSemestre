@@ -36,7 +36,7 @@ const Detail = ({data}) => {
       <div>
         <h4>Nombre: {producto.nombre}</h4>
         <h5>Precio: {producto.precio}</h5>
-        <img src={producto.referencia} alt={producto.nombre} />
+        <img src={producto.imagen} alt={producto.nombre} />
         <div>
           {
             goCart
