@@ -30,6 +30,20 @@ export function postUser(state){
     }
 }
 
+
+export function postProducto(state){
+    return async function(){
+        try {
+            await axios.post('http://localhost:8083/product/nuevoProducto',state)
+            console.log(state)
+            alert("Producto registrado")
+
+        } catch (error) {
+            console.log(error)
+           }
+    }
+}
+
 export function postPago(state){
     return async function(){
         try {

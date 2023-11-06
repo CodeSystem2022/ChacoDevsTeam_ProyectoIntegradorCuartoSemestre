@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { postProducto } from '../../Redux/Actions/Actions';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'; // Importa useHistory
 
 const Control = () => {
   const dispatch = useDispatch();
+  const history = useHistory(); // Obtiene la instancia de history
   const [newProduct, setNewProduct] = useState({
     codigo: '', 
     nombre: '',
@@ -11,7 +13,7 @@ const Control = () => {
     tipo: 'ALIMENTO',
     especie: 'PERRO',
     stock: 0,
-    imagen:''
+    imagen: ''
   });
 
   const handleChange = (e) => {
@@ -25,6 +27,11 @@ const Control = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postProducto(newProduct));
+  };
+
+  const handleGoBack = () => {
+    // Redirige al usuario de nuevo a la página de administración /admin
+    history.push('/admin');
   };
 
   return (
@@ -66,6 +73,10 @@ const Control = () => {
           <input type="number" id="stock" name="stock" value={newProduct.stock} onChange={handleChange} />
         </div>
         <button type="submit">Registrar Producto</button>
+        <div>
+          <button type="button" onClick={handleGoBack}>Volver atrás</button> 
+        </div>
+        
       </form>
     </div>
   );

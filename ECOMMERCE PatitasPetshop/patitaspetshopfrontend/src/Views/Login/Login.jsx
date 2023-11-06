@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+
 axios.defaults.headers.common['Accept'] = 'application/json';
 
 const Login = () => {
@@ -12,19 +13,26 @@ const Login = () => {
     try {
       const response = await axios.get(`http://localhost:8081/customer/buscarEmail/${email}`);
       if (response.status === 200) {
-        // Guarda el estado de inicio de sesión en localStorage
-        localStorage.setItem('isLoggedIn', 'true');
-        // Guarda el nombre del usuario en localStorage
-        localStorage.setItem('userName', response.data.nombre);
-        // Guarda el ID del cliente en localStorage
-        localStorage.setItem('userId', response.data.id);
-
-        const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil(presione cancelar)?');
-        
-        if (choice) {
-          history.push('/');
+        if (email === 'admin@admin') {
+          // Si el correo es 'admin@admin', muestra un mensaje de bienvenida
+          alert('¡Bienvenido superAdmin!');
+          // Redirige al usuario a la página de administrador
+          history.push('/admin');
         } else {
-          history.push('/perfil');
+          // Guarda el estado de inicio de sesión en localStorage
+          localStorage.setItem('isLoggedIn', 'true');
+          // Guarda el nombre del usuario en localStorage
+          localStorage.setItem('userName', response.data.nombre);
+          // Guarda el ID del cliente en localStorage
+          localStorage.setItem('userId', response.data.id);
+
+          const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil (presione cancelar)?');
+
+          if (choice) {
+            history.push('/');
+          } else {
+            history.push('/perfil');
+          }
         }
       } else {
         setError('Correo electrónico no encontrado');
