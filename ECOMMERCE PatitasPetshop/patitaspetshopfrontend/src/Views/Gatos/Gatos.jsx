@@ -55,8 +55,9 @@ const Gatos = () => {
   };
 
   return (
-    <div className="filtros-busqueda">
-      <div>
+    <div >
+      <div className="filtros-busqueda">
+          <div>
         <label htmlFor="precioMin">Precio Mínimo:</label>
         <input
           type="number"
@@ -94,7 +95,12 @@ const Gatos = () => {
         </select>
       </div>
       <button onClick={resetFilters}>Restablecer Filtros</button>
-      <Cards allProducts={gatosProducts}></Cards>
+      </div>
+      <div>
+        <Cards allProducts={gatosProducts}></Cards>
+      </div>
+      
+      
     </div>
   );
 };
