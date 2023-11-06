@@ -19,6 +19,9 @@ import Entrega from './Views/Entrega/Entrega';
 import Pagos from './Views/Pagos/Pagos';
 import Login from './Views/Login/Login';
 import Perfil from './components/Perfil/Perfil';
+import Transacciones from './Views/Transacciones/Transacciones';
+import Admin from './Views/Admin/Admin';
+import Control from './Views/Control/Control';
 
 
 
@@ -43,6 +46,10 @@ function App() {
               <Route path='/pagos' component={Pagos} />
               <Route path='/login' component={Login} />
               <Route path='/perfil' component={Perfil} />
+              <Route path='/admin' component={Admin} />
+              <Route path='/transacciones' component={Transacciones} />
+              <Route path='/control' component={Control} />
+
             </Switch>
           </CarritoProvider>
         </BrowserRouter>
