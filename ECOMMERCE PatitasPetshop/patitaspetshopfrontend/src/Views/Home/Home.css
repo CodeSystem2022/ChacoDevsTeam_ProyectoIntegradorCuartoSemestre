@@ -32,3 +32,12 @@
   font-size: 40px;
   margin: 0 auto;
 }
+.descuentos {
+  display: flex;
+  justify-content: space-between; /* Distribuye las imágenes en los bordes del contenedor */
+  align-items: center; /* Centra verticalmente las imágenes en el contenedor */
+}
+
+.descuentos img {
+  width: 45%; 
+}

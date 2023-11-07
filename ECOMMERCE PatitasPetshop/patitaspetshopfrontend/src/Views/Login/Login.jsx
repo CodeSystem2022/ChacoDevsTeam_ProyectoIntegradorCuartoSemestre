@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-
+import '../Login/Login.css';
 axios.defaults.headers.common['Accept'] = 'application/json';
 
 const Login = () => {
