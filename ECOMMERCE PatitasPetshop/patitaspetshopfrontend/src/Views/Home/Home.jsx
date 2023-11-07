@@ -50,9 +50,18 @@ const Home = () => {
       </div>
   
       <div className="iconitos">
-        <img src="comida gatito-03.jpg" alt="Image 1"/>
-        <img src="alimentos-03.jpg" alt="Image 2" />
-        <img src="comida perrito-03.jpg" alt="Image 3" />
+        
+        <Link to="/gatos">
+          <img src="comida gatito-03.jpg" alt="Image 1"/>
+        </Link>
+        
+        <Link to="/accesorios">
+              <img src="alimentos-03.jpg" alt="Image 2"  />
+        </Link>
+        <Link to="/perros">
+           <img src="comida perrito-03.jpg" alt="Image 3" />
+        </Link>
+       
       </div>
   
       <div className="bloque">
