@@ -22,6 +22,7 @@ import Perfil from './components/Perfil/Perfil';
 import Transacciones from './Views/Transacciones/Transacciones';
 import Admin from './Views/Admin/Admin';
 import Control from './Views/Control/Control';
+import FullProductos from './Views/FullProductos/FullProductos';
 
 
 
@@ -49,6 +50,7 @@ function App() {
               <Route path='/admin' component={Admin} />
               <Route path='/transacciones' component={Transacciones} />
               <Route path='/control' component={Control} />
+              <Route path='/fullproductos' component={FullProductos} />
 
             </Switch>
           </CarritoProvider>

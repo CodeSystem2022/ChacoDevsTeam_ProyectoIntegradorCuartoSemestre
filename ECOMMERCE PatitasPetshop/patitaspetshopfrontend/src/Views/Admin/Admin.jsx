@@ -20,14 +20,17 @@ const Admin = () => {
     <div>
       <h1>Panel de Administración</h1>
       <p>Elige una opción:</p>
-      <ul>
+      <div>
         <li>
           <Link to="/transacciones">Ver Transacciones</Link>
         </li>
         <li>
           <Link to="/control">Gestionar Productos</Link>
         </li>
-      </ul>
+        <li>
+          <Link to="/fullProductos">Ver todos los productos</Link>
+        </li>
+      </div>
       <button onClick={handleLogout}>Cerrar Sesión</button>
     </div>
   );
