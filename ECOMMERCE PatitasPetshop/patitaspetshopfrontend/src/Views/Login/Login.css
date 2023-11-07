@@ -1,0 +1,49 @@
+div {
+    text-align: center;
+    font-family: Montserrat;
+    
+}
+  
+h2 {
+    font-size: 24px;
+    font-family: Montserrat;
+}
+  
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+  
+
+label {
+    display: block;
+}
+  
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+}
+  
+
+button {
+    background-color: #1eb3ae;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-family: Montserrat;
+    border: none;
+}
+button:hover {
+    background-color: #082c2b; /* Color de fondo cuando el mouse está sobre el botón */
+  }
+
+
+p {
+    color: red;
+}

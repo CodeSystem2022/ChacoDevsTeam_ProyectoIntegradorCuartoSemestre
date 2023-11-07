@@ -23,9 +23,9 @@ const Perros = () => {
   const perrosProducts = allProducts.filter((product) => {
     return (
       product.especie === 'PERRO' &&
+      product.tipo === 'ALIMENTO' && // Agregar esta línea
       product.precio >= precioMin &&
       product.precio <= precioMax &&
-      (tipo === '' || product.tipo === tipo) &&
       (marca === '' || product.marca === marca)
     );
   });

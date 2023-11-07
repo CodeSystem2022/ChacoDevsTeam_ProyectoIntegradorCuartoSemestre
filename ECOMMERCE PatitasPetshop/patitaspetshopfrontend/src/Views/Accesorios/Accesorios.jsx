@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getProducts } from '../../Redux/Actions/Actions';
 import '../Accesorios/Accesorios.css';
+import Cards from '../../components/Cards/Cards';
 
 const Accesorios = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,9 @@ const Accesorios = () => {
       />
     </div>
     <button onClick={resetFilters}>Restablecer Filtros</button>
+    <div>
+        <Cards allProducts={accesoriosProducts}></Cards>
+    </div>
   </div>
   );
 };

@@ -56,10 +56,22 @@ const Home = () => {
       </div>
   
       <div className="bloque">
-        <h2>MÁS VENDIDOS</h2>
+        <h2>APROVECHA ESTOS DESCUENTOS</h2>
         {/* Agrega aquí el contenido de los productos más vendidos */}
       </div>
+      <div class="descuentos">
+      <img src="Ahorra-en-collares.png" alt="Image 1"/>
+        <img src="20off.png" alt="Image 2" />
     </div>
+    <div class="recomendado">
+      <img src="Alimentospeques.png" alt="Image 1"/>
+        <img src="Nuestras-sucursales.png" alt="Image 2" />
+    </div>
+
+
+    
+    </div>
+    
   );
 
   }

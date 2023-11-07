@@ -32,3 +32,23 @@
   font-size: 40px;
   margin: 0 auto;
 }
+.descuentos {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.descuentos img {
+  width: 45%;
+  margin-right: 0px; 
+}
+.recomendado {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.recomendado img {
+  width: 100%;
+  margin-right: 0px; 
+}
