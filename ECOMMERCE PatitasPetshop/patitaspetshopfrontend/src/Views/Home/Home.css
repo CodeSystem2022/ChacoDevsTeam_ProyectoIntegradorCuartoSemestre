@@ -34,10 +34,21 @@
 }
 .descuentos {
   display: flex;
-  justify-content: space-between; /* Distribuye las imágenes en los bordes del contenedor */
-  align-items: center; /* Centra verticalmente las imágenes en el contenedor */
+  justify-content: space-between; 
+  align-items: center;
 }
 
 .descuentos img {
-  width: 45%; 
+  width: 45%;
+  margin-right: 0px; 
+}
+.recomendado {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.recomendado img {
+  width: 100%;
+  margin-right: 0px; 
 }
