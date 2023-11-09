@@ -33,25 +33,30 @@ const Detail = ({data}) => {
   }
 
   return (
-    <div className="product-details">
-    <h2>Detalles del Producto</h2>
-    <div>
-      <h4>Nombre: {producto.nombre}</h4>
-      <h5>Precio: {producto.precio}</h5>
-      <img src={producto.imagen} alt={producto.nombre} />
-      <div className="purchase-options">
-        {goCart ? (
-          <Link to={'/carrito'} className="Finaliza">Finaliza tu compra!</Link>
-        ) : (
-          <Contador
-            initial={1}
-            stock={5}
-            onAdd={(quantity) => onAdd(quantity, producto)}
-          ></Contador>
-        )}
+      <div>
+        <div className="product-details">
+            <h2>Detalles del Producto</h2>
+            <div className='product-container'>
+              <ul>
+                <img src={producto.imagen} alt={producto.nombre} />
+                <h4>{producto.nombre}</h4>
+                <h5>Precio:${producto.precio}</h5>
+                <div className="purchase-options">
+                  {goCart ? (
+                    <Link to={'/carrito'} className="Finaliza">Finaliza tu compra!</Link>
+                  ) : (
+                    <Contador
+                      initial={1}
+                      stock={5}
+                      onAdd={(quantity) => onAdd(quantity, producto)}
+                    ></Contador>
+                  )}
+                </div>
+              </ul>
+                
+          </div>
       </div>
     </div>
-  </div>
   );
 };
 

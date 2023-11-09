@@ -24,7 +24,7 @@
   }
   
   .product-details img {
-    max-width: 100%;
+    max-width: 75%;
     margin: 20px 0;
   }
   
@@ -64,6 +64,12 @@
   .product-details .purchase-options .quantity-container button:hover {
     background-color: #27dbd5;
   }
+
+  .product-containter img{
+    max-width: 50%;
+  }
+
+  
   
   .finaliza{
         display: inline-block;
