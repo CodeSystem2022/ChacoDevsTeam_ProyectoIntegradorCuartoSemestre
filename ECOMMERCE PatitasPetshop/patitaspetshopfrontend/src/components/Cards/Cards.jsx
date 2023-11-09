@@ -6,19 +6,22 @@ import '../Cards/Cards.css';
 const Cards = ({ allProducts }) => {
 
   return (
-    <div className="product-container">
-      {allProducts.map((producto) => (
-        <Link to={`/detail/${producto.id}`} key={producto.id}className="product-card">
-             <Card
-               nombre={producto.nombre}
-               precio={producto.precio}
-               imagen={producto.imagen}
-               id={producto.id}
-             />
-        </Link>
-      ))}
+    <div>
+      <div className="product-container">
+        {allProducts.map((producto) => (
+          <Link to={`/detail/${producto.id}`} key={producto.id}>
+              <Card
+                nombre={producto.nombre}
+                precio={producto.precio}
+                imagen={producto.imagen}
+                id={producto.id}
+              />
+          </Link>
+        ))}
+      </div>
     </div>
   );
+
 };
 
 export default Cards;

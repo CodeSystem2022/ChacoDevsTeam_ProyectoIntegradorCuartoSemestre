@@ -49,42 +49,46 @@ const Accesorios = () => {
   };
 
   return (
-    <div className="filtros-busqueda">
-    <div>
-      <label htmlFor="precioMin">Precio Mínimo:</label>
-      <input
-        type="number"
-        id="precioMin"
-        name="precioMin"
-        value={precioMin}
-        onChange={handleFilterChange}
-      />
-    </div>
-    <div>
-      <label htmlFor="precioMax">Precio Máximo:</label>
-      <input
-        type="number"
-        id="precioMax"
-        name="precioMax"
-        value={precioMax}
-        onChange={handleFilterChange}
-      />
-    </div>
-    <div>
-      <label htmlFor="nombre">Buscar por Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value={nombre}
-        onChange={handleFilterChange}
-      />
-    </div>
-    <button onClick={resetFilters}>Restablecer Filtros</button>
-    <div>
-        <Cards allProducts={accesoriosProducts}></Cards>
-    </div>
-  </div>
+    <div > 
+     <div className="filtros-busqueda">
+     <div>
+       <label htmlFor="precioMin">Precio Mínimo:</label>
+       <input
+         type="number"
+         id="precioMin"
+         name="precioMin"
+         value={precioMin}
+         onChange={handleFilterChange}
+       />
+     </div>
+     <div>
+       <label htmlFor="precioMax">Precio Máximo:</label>
+       <input
+         type="number"
+         id="precioMax"
+         name="precioMax"
+         value={precioMax}
+         onChange={handleFilterChange}
+       />
+     </div>
+     <div>
+       <label htmlFor="nombre">Buscar por Nombre:</label>
+       <input
+         type="text"
+         id="nombre"
+         name="nombre"
+         value={nombre}
+         onChange={handleFilterChange}
+       />
+     </div>
+     <button onClick={resetFilters}>Restablecer Filtros</button>
+     </div>
+     
+     
+     <div>
+         <Cards allProducts={accesoriosProducts}></Cards>
+     </div>
+   </div>
   );
 };
 

@@ -1,0 +1,12 @@
+.card-title-cont h4{
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: #272727;
+    margin: 10px 0;
+    font-size: 28px;
+    
+  }
