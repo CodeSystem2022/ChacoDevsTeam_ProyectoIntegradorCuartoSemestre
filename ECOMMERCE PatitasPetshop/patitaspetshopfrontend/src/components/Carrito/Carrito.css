@@ -1,0 +1,23 @@
+.botoncompras {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1eb3ae;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .botoncompras:hover {
+    background-color: #27dbd5;
+  }
+
+
+.nohay{
+   background-color:  #c3d66d;
+}
+.nohay p {
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    color: rgb(221, 14, 14);
+}

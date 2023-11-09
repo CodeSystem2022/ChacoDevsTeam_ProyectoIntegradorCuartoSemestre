@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import '../Perfil/Perfil.css';
 
 const Perfil = () => {
   const [historialCompras, setHistorialCompras] = useState([]);
@@ -54,20 +55,22 @@ const Perfil = () => {
           {historialCompras.length > 0 ? (
             <ul>
               {historialCompras.map((compra) => (
+                <div className="historial">
                 <li key={compra.id}>
                   <p>Fecha: {compra.fechaTransaccion}</p>
                   <p>Monto: ${compra.monto}</p>
                   <p>Medio de pago: {compra.canal}</p>
                   <p>Productos comprados:</p>
-                  <ul>
+                  <ul >
                     {compra.producttransactions.map((productoTransaccion) => (
                       <li key={productoTransaccion.id}>
-                        <div>Cantidad: {productoTransaccion.cantidadProducto}</div>
-                        <div>Nombre: {productoInfo[productoTransaccion.id] || 'Cargando...'}</div>
+                        <div className="Textohistorial">Cantidad: {productoTransaccion.cantidadProducto}</div>
+                        <div className="Textohistorial">Nombre: {productoInfo[productoTransaccion.id] || 'Cargando...'}</div>
                       </li>
                     ))}
                   </ul>
                 </li>
+                </div>
               ))}
             </ul>
           ) : (

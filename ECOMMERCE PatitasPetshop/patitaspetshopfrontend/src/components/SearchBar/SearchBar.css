@@ -1,6 +1,6 @@
 .SearchBar {
-    display: flex; /* Utilizamos flexbox para alinear los elementos */
-    align-items: center; /* Alineamos verticalmente los elementos al centro */
+    display: flex; 
+    align-items: center; 
   }
   
   .SearchBar input {
@@ -30,17 +30,17 @@
 
 
   .mostrartodos {
-    background-color: #e00e07; /* Color de fondo del botón */
-    color: #ffffff; /* Color del texto del botón */
-    padding: 5px 10px; /* Espaciado interno del botón (arriba/abajo, izquierda/derecha) */
-    border: none; /* Quita el borde del botón */
-    border-radius: 5px; /* Añade bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse por encima del botón */
-    font-size: 13px; /* Tamaño del texto */
+    background-color: #e00e07; 
+    color: #ffffff; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 13px; 
     font-family: Montserrat;
     
   }
   
   .mostrartodos:hover {
-    background-color: #1eb3ae; /* Color de fondo cuando el mouse está sobre el botón */
+    background-color: #1eb3ae; 
   }

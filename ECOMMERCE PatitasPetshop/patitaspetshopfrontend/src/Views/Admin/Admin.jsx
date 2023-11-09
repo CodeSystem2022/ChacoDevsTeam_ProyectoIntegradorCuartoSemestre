@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import '../Admin/Admin.css';
 
 const Admin = () => {
   const history = useHistory();
@@ -17,23 +18,33 @@ const Admin = () => {
   };
 
   return (
-    <div>
-      <h1>Panel de Administración</h1>
+    <div className='Panel'>
+      <h1 className="heading">Panel de Administración</h1>
       <p>Elige una opción:</p>
       <div>
-        <li>
-          <Link to="/transacciones">Ver Transacciones</Link>
-        </li>
-        <li>
-          <Link to="/control">Gestionar Productos</Link>
-        </li>
-        <li>
-          <Link to="/fullProductos">Ver todos los productos</Link>
-        </li>
+        <ul className="linkList">
+          <li>
+            <Link to="/transacciones" className="link">
+              Ver Transacciones
+            </Link>
+          </li>
+          <li>
+            <Link to="/control" className="link">
+              Gestionar Productos
+            </Link>
+          </li>
+          <li>
+            <Link to="/fullProductos" className="link">
+              Ver todos los productos
+            </Link>
+          </li>
+        </ul>
       </div>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
+      <button className="button" onClick={handleLogout}>
+        Cerrar Sesión
+      </button>
     </div>
   );
-};
+}
 
 export default Admin;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { postProducto } from '../../Redux/Actions/Actions';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'; // Importa useHistory
+import '../Control/Control.css';
 
 const Control = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Control = () => {
   };
 
   return (
-    <div>
+    <div className='registroproducto'>
       <h2>Registrar un Nuevo Producto</h2>
       <form onSubmit={handleSubmit}>
         <div>

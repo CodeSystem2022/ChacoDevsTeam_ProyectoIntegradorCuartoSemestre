@@ -16,13 +16,13 @@
 
 .nav-menu ul {
     margin-right: 200px;
-    list-style-type: none; /* Quita los puntos de lista */
+    list-style-type: none; 
     display: flex;
 }
   
 
 .nav-menu li {
-    margin-right: 20px; /* Espaciado entre elementos del menú */
+    margin-right: 20px; 
 }
   
 .nav-menu a {
@@ -43,14 +43,14 @@
 .login-button {
   background-color: #e00e07;
   color: #ffffff;
-  padding: 10px 20px; /* Ajusta el espaciado interno del botón (arriba/abajo, izquierda/derecha) según tus preferencias */
+  padding: 10px 20px; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 15px;
   font-family: Montserrat;
   font-weight: 500;
-  margin-left: 20px; /* Ajusta el margen izquierdo entre el botón y el texto */
+  margin-left: 20px; 
 }
 
 .login-button:hover {

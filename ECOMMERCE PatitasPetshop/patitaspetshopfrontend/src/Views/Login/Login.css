@@ -1,7 +1,6 @@
 div {
     text-align: center;
     font-family: Montserrat;
-    
 }
   
 h2 {
@@ -40,7 +39,7 @@ button {
     border: none;
 }
 button:hover {
-    background-color: #082c2b; /* Color de fondo cuando el mouse está sobre el botón */
+    background-color: #082c2b; 
   }
 
 

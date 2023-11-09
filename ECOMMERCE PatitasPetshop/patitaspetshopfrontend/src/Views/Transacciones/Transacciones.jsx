@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import '../Transacciones/Transacciones.css';
 const Transacciones = () => {
   const [transacciones, setTransacciones] = useState([]);
   const [clienteInfo, setClienteInfo] = useState({});
@@ -93,7 +93,7 @@ const Transacciones = () => {
       <button onClick={volverAAdmin}>Volver atrás</button>
 
       {transacciones.map((transaccion) => (
-        <div key={transaccion.id}>
+        <div className='transacciones' key={transaccion.id}>
           <p>Transacción ID: {transaccion.id}</p>
           <p>Email del Cliente: {clienteInfo[transaccion.idCliente]?.email}</p>
           <p>Nombre y Apellido del Cliente: {clienteInfo[transaccion.idCliente]?.nombre} {clienteInfo[transaccion.idCliente]?.apellido}</p>

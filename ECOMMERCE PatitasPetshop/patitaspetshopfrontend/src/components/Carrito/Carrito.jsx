@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import ListaCarrito from '../ListaCarrito/ListaCarrito';
 import { useDispatch } from 'react-redux';
 import { postPago } from '../../Redux/Actions/Actions';
+import '../Carrito/Carrito.css';
 
 const Carrito = () => {
   const dispatch = useDispatch();
@@ -53,8 +54,10 @@ const Carrito = () => {
   if (!carrito || carrito.length === 0) {
     return (
       <>
+      <div className='nohay'>
         <p>No hay elementos en el carrito</p>
-        <Link to='/'>Hacer compras</Link>
+        <Link to='/' className="botoncompras">Hacer compras</Link>
+        </div>
       </>
     );
   }
