@@ -66,7 +66,7 @@ const Pagos = () => {
               id="domicilio"
               name="pago"
               value="domicilio"
-              checked={opcionPago === 'domicilio'}
+              checked={opcionPago === 'Efectivo'}
               onChange={handleOptionChange}
             />
             <label htmlFor="domicilio">Pago en Domicilio</label>
