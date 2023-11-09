@@ -1,0 +1,64 @@
+.registroproducto {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    font-family: Montserrat;
+  }
+  
+  .registroproducto h2 {
+    font-size: 24px;
+    color: #1eb3ae;
+    margin-bottom: 20px;
+  }
+  
+  .registroproducto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Montserrat;
+  }
+  
+  .registroproducto label {
+    margin-bottom: 5px;
+  }
+  
+  .registroproducto input, .registroproducto select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .registroproducto select {
+    height: 35px;
+  }
+  
+  .registroproducto button[type="submit"] {
+    background-color: #c3d66d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .registroproducto button[type="submit"]:hover {
+    background-color: rgb(0, 179, 15);
+  }
+  
+  .registroproducto button[type="button"] {
+    background-color: #e00e07;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .registroproducto button[type="button"]:hover {
+    background-color: #999;
+  }
+  

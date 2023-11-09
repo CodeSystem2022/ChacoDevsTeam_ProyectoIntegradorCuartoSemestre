@@ -1,0 +1,18 @@
+.historial {
+    background-color: #c3d66d;
+    font-family: Montserrat;
+    text-align: left;
+    list-style-type: none; /* saco los puntitos */
+    
+}
+
+
+.historial p {
+   padding: 15px;
+    color:black;
+}
+
+.Textohistorial {
+    text-align: left;
+    list-style-type: none; /* saco los puntitos */
+}

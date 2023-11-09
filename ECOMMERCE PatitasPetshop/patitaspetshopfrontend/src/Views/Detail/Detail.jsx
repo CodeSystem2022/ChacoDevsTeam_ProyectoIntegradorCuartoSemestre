@@ -4,6 +4,8 @@ import { useParams} from 'react-router-dom';
 import Contador from '../../components/Contador/Contador';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCarritoContexto } from '../../CarritoContext/CarritoContext'
+import '../Detail/Detail.css';
+
 
 const Detail = ({data}) => {
   const [producto, setProducto] = useState({});
@@ -31,22 +33,25 @@ const Detail = ({data}) => {
   }
 
   return (
+    <div className="product-details">
+    <h2>Detalles del Producto</h2>
     <div>
-      <h2>Detalles del Producto</h2>
-      <div>
-        <h4>Nombre: {producto.nombre}</h4>
-        <h5>Precio: {producto.precio}</h5>
-        <img src={producto.imagen} alt={producto.nombre} />
-        <div>
-          {
-            goCart
-              ? <Link to={'/carrito'}>Finaliza tu compra!</Link>
-              :<Contador initial={1} stock={5} onAdd={(quantity) => onAdd(quantity, producto)}></Contador>
-          }
-        
-        </div>
+      <h4>Nombre: {producto.nombre}</h4>
+      <h5>Precio: {producto.precio}</h5>
+      <img src={producto.imagen} alt={producto.nombre} />
+      <div className="purchase-options">
+        {goCart ? (
+          <Link to={'/carrito'} className="Finaliza">Finaliza tu compra!</Link>
+        ) : (
+          <Contador
+            initial={1}
+            stock={5}
+            onAdd={(quantity) => onAdd(quantity, producto)}
+          ></Contador>
+        )}
       </div>
     </div>
+  </div>
   );
 };
 

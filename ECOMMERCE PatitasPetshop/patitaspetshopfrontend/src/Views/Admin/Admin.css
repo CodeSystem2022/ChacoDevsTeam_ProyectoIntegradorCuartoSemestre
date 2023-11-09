@@ -1,0 +1,19 @@
+
+.heading {
+    font-size: 24px;
+    color: #dd1a1a;
+    list-style-type: none;
+  }
+  
+  .link {
+    text-align: center;
+    text-decoration: none;
+    color: #1eb3ae;
+  }
+  
+  .button {
+    background-color: #c3d66d;
+    color: white;
+    
+  }
+  
