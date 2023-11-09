@@ -86,8 +86,7 @@ Utilizaremos la interfaz SWAGGER para visibilizar y realizar las pruebas sobre l
 El microservicio CUSTOMER se encarga de la gestión de clientes y ofrece las siguientes funcionalidades:
 
 - CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar los datos de los clientes.
-- Métodos para controlar el stock de productos relacionados con cada cliente.
- Se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
+- Swagger UI se accede través de la URL [http://localhost:8081/swagger-ui/index.html#/](http://localhost:8081/swagger-ui/index.html#/)
 
 ![image](https://github.com/CodeSystem2022/ChacoDevsTeam_ProyectoIntegradorCuartoSemestre/assets/70241433/186b3a4f-baa8-42f2-a5ef-058abd447bcf)
 
