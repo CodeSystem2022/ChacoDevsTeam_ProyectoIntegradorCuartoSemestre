@@ -3,7 +3,8 @@ import { GET_PRODUCTS} from "../Actions/Actions-type";
 
 let initialState={
     allProducts:[],
-    carrito:[]
+    carrito:[],
+    searchQuery:'',
 }
 
 function rootReducer(state=initialState,action){
@@ -13,6 +14,7 @@ function rootReducer(state=initialState,action){
                 ...state,
                 allProducts:action.payload
             }
+            
         
        
         default:

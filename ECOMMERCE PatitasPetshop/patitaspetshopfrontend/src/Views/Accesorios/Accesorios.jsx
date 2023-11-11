@@ -19,14 +19,14 @@ const Accesorios = () => {
   }, [dispatch]);
 
   // Filtrar los productos con tipo "ACCESORIO" y dentro del rango de precio especificado
-  const accesoriosProducts = allProducts.filter((product) => {
+  const accesoriosProducts =Array.isArray(allProducts) ? allProducts.filter((product) => {
     return (
       product.tipo === 'ACCESORIO' &&
       product.precio >= precioMin &&
       product.precio <= precioMax &&
       (nombre === '' || product.nombre.toLowerCase().includes(nombre.toLowerCase()))
     );
-  });
+  }):[];
 
   // Función para manejar cambios en los filtros
   const handleFilterChange = (event) => {
@@ -86,8 +86,13 @@ const Accesorios = () => {
      
      
      <div>
-         <Cards allProducts={accesoriosProducts}></Cards>
-     </div>
+      {accesoriosProducts.length === 0 ? (
+        <h4>Ups!No hay productos disponibles en estos momentos.Contacta al administrador</h4>
+        
+      ) : (
+        <Cards allProducts={accesoriosProducts}></Cards>
+      )}
+      </div>
    </div>
   );
 };

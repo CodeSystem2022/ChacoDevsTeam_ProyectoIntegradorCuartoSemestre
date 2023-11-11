@@ -58,13 +58,23 @@ export function postPago(state){
 }
 
 
-export function alimentoByNombre(nombre){
-    return async dispatch =>{
-        const endPoint=(`http://localhost:8083/product/obtenerProducto/nombre/${nombre}`)
-        const response= await axios.get(endPoint);
-        return dispatch({
-            type:GET_PRODUCTS,
-            payload:[response.data]
-        })
+
+export function alimentoByNombre(nombre) {
+  return async (dispatch) => {
+    try {
+      const endPoint = `http://localhost:8083/product/obtenerProducto/nombre/${nombre}`;
+      const response = await axios.get(endPoint);
+
+      dispatch({
+        type: 'GET_PRODUCTS', // Cambiado de GET_PRODUCTS a ALIMENTO_POR_NOMBRE según tu caso
+        payload: [response.data],
+      });
+    } catch (error) {
+      alert('No se encontró el producto');
     }
+  };
 }
+
+
+
+

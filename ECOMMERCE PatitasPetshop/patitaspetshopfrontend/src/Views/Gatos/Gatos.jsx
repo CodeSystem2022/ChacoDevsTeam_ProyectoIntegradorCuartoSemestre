@@ -20,16 +20,15 @@ const Gatos = () => {
   }, [dispatch]);
 
   // Filtrar los productos con especie "felino", dentro del rango de precio, tipo y marca especificados
-  const gatosProducts = allProducts.filter((product) => {
+  const gatosProducts = Array.isArray(allProducts) ? allProducts.filter((product) => {
     return (
       product.tipo === 'ALIMENTO' &&
       product.especie === 'GATO' &&
       product.precio >= precioMin &&
       product.precio <= precioMax &&
-      (tipo === '' || product.tipoAlimento === tipo) &&
       (marca === '' || product.marca === marca)
     );
-  });
+  }) : [];
 
   // Función para manejar cambios en los filtros
   const handleFilterChange = (event) => {
@@ -97,7 +96,12 @@ const Gatos = () => {
       <button onClick={resetFilters}>Restablecer Filtros</button>
       </div>
       <div>
+      {gatosProducts.length === 0 ? (
+        <h4>Ups!No hay productos disponibles en estos momentos.Contacta al administrador</h4>
+        
+      ) : (
         <Cards allProducts={gatosProducts}></Cards>
+      )}
       </div>
       
       
