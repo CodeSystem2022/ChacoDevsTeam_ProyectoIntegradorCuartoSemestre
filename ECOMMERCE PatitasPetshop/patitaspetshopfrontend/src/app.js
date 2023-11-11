@@ -23,6 +23,7 @@ import Transacciones from './Views/Transacciones/Transacciones';
 import Admin from './Views/Admin/Admin';
 import Control from './Views/Control/Control';
 import FullProductos from './Views/FullProductos/FullProductos';
+import Usuario from './components/Usuario/Usuario';
 
 
 
@@ -51,6 +52,7 @@ function App() {
               <Route path='/transacciones' component={Transacciones} />
               <Route path='/control' component={Control} />
               <Route path='/fullproductos' component={FullProductos} />
+              <Route path='/usuario' component={Usuario} />
 
             </Switch>
           </CarritoProvider>
