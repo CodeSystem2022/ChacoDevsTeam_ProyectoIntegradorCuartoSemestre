@@ -13,12 +13,6 @@ const Login = () => {
     try {
       const response = await axios.get(`http://localhost:8081/customer/buscarEmail/${email}`);
       if (response.status === 200) {
-        if (email === 'admin@admin') {
-          // Si el correo es 'admin@admin', muestra un mensaje de bienvenida
-          alert('¡Bienvenido superAdmin!');
-          // Redirige al usuario a la página de administrador
-          history.push('/admin');
-        } else {
           // Guarda el estado de inicio de sesión en localStorage
           localStorage.setItem('isLoggedIn', 'true');
           // Guarda el nombre del usuario en localStorage
@@ -26,14 +20,14 @@ const Login = () => {
           // Guarda el ID del cliente en localStorage
           localStorage.setItem('userId', response.data.id);
 
-          const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio o al Perfil (presione cancelar)?');
+          const choice = window.confirm('Inicio de sesión exitoso. ¿Deseas ir al Inicio? Presione Aceptar, de lo contrario cancelar para ir al Perfil');
 
           if (choice) {
             history.push('/');
           } else {
-            history.push('/perfil');
+            history.push('/usuario');
           }
-        }
+        
       } else {
         setError('Correo electrónico no encontrado');
       }
