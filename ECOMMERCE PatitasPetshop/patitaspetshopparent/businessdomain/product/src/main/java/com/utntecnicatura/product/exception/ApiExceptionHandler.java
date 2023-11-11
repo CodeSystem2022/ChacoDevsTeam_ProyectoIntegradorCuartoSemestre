@@ -38,4 +38,10 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ProductException.DuplicateProductException.class)
+    public ResponseEntity<StandarizedApiExceptionResponse> duplicateProductException(ProductException.DuplicateProductException ex) {
+        StandarizedApiExceptionResponse response = new StandarizedApiExceptionResponse("Producto existente en los registros", "error-1003", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
 }

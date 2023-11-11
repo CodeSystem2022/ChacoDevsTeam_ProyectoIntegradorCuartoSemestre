@@ -4,7 +4,9 @@ import com.utntecnicatura.product.entities.Product;
 import com.utntecnicatura.product.exception.ProductException;
 import com.utntecnicatura.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -108,7 +110,11 @@ public class ImplProductService implements IProductService {
 
     @Override
     public Product post(Product input) {
-        return productRepository.save(input);
+        try {
+            return productRepository.save(input);
+        } catch (DataIntegrityViolationException ex) {
+            throw new ProductException.DuplicateProductException("Producto existente en los registros", ex);
+        }
     }
 
     @Override

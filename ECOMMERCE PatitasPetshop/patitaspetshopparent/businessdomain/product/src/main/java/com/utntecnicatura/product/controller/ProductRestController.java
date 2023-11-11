@@ -94,10 +94,16 @@ public class ProductRestController {
 
     }
     @PostMapping("/nuevoProducto")
-    public ResponseEntity<Product> post(@RequestBody Product input){
-        Product save = productService.post(input);
-        logger.info("Se creo el siguiente producto: "+save.getId());
-        return new ResponseEntity<>(save, HttpStatus.CREATED);
+    public ResponseEntity<?> post(@RequestBody Product input){
+        try {
+            Product save = productService.post(input);
+            logger.info("Se creo el siguiente producto: " + save.getId());
+            return new ResponseEntity<>(save, HttpStatus.CREATED);
+        }catch (ProductException ex){
+            logger.error("Ocurrio un error al crear el producto");
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+                    .body("Error al crear: " + ex.getMessage());
+        }
     }
 
     @DeleteMapping("/borrarProducto/{id}")
@@ -105,7 +111,7 @@ public class ProductRestController {
         try{
             productService.delete(id);
             logger.info("Se elimino el siguiente producto: "+id);
-            return ResponseEntity.ok().body("Se elimino el cliente n° "+id);
+            return ResponseEntity.ok().body("Se elimino el producto n° "+id);
         }catch (ProductException be){
             logger.error("Ocurrio un error al eliminar el siguiente producto: "+id);
             return ResponseEntity.status(HttpStatus.NOT_FOUND)

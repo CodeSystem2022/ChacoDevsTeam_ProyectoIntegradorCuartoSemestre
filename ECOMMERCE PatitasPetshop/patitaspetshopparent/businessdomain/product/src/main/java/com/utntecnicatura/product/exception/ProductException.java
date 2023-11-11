@@ -66,4 +66,23 @@ public class ProductException extends RuntimeException {
         }
     }
 
+    public static class DuplicateProductException extends ProductException {
+
+        public DuplicateProductException() {
+            super();
+        }
+
+        public DuplicateProductException(String message) {
+            super(message);
+        }
+
+        public DuplicateProductException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public DuplicateProductException(Throwable cause) {
+            super(cause);
+        }
+    }
+
 }

@@ -14,6 +14,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = "codigo"),
+        @UniqueConstraint(columnNames = "nombre")
+})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
