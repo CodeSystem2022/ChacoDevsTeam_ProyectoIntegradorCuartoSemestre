@@ -20,7 +20,7 @@ const Perros = () => {
   }, [dispatch]);
 
   // Filtrar los productos con especie "canina", dentro del rango de precio, tipo y marca especificados
-  const perrosProducts = allProducts.filter((product) => {
+  const perrosProducts = Array.isArray(allProducts)? allProducts.filter((product) => {
     return (
       product.especie === 'PERRO' &&
       product.tipo === 'ALIMENTO' && // Agregar esta línea
@@ -28,7 +28,7 @@ const Perros = () => {
       product.precio <= precioMax &&
       (marca === '' || product.marca === marca)
     );
-  });
+  }):[];
 
   // Función para manejar cambios en los filtros
   const handleFilterChange = (event) => {
@@ -96,7 +96,12 @@ const Perros = () => {
       <button onClick={resetFilters}>Restablecer Filtros</button>
       </div>
       <div>
+      {perrosProducts.length === 0 ? (
+        <h4>Ups!No hay productos disponibles en estos momentos.Contacta al administrador</h4>
+        
+      ) : (
         <Cards allProducts={perrosProducts}></Cards>
+      )}
       </div>
       
       
