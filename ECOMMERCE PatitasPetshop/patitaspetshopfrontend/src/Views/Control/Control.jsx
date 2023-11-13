@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { postProducto } from '../../Redux/Actions/Actions';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'; // Importa useHistory
+import { useHistory } from 'react-router-dom';
 import '../Control/Control.css';
 
 const Control = () => {
   const dispatch = useDispatch();
-  const history = useHistory(); // Obtiene la instancia de history
+  const history = useHistory();
   const [newProduct, setNewProduct] = useState({
     codigo: '', 
     nombre: '',
@@ -16,6 +16,16 @@ const Control = () => {
     stock: 0,
     imagen: ''
   });
+
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    // Cargar la lista de productos al montar el componente
+    fetch('http://localhost:8083/product/listarProductos')
+      .then(response => response.json())
+      .then(data => setProductos(data))
+      .catch(error => console.error('Error al obtener la lista de productos:', error));
+  }, []); // El array vacío asegura que esto solo se ejecute al montar el componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +37,21 @@ const Control = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(postProducto(newProduct));
+
+    // Verificar si el nombre ya existe en la lista de productos
+    const nombreExistente = productos.find(producto => producto.nombre === newProduct.nombre);
+
+    if (nombreExistente) {
+      alert('Este nombre ya existe. Por favor, elige otro nombre.');
+    } else {
+      // Si el nombre no existe, enviar la solicitud para crear el producto
+      dispatch(postProducto(newProduct));
+      // Redirigir al usuario a la página de administración /admin
+      history.push('/admin');
+    }
   };
 
   const handleGoBack = () => {
-    // Redirige al usuario de nuevo a la página de administración /admin
     history.push('/admin');
   };
 
@@ -77,10 +97,14 @@ const Control = () => {
         <div>
           <button type="button" onClick={handleGoBack}>Volver atrás</button> 
         </div>
-        
       </form>
     </div>
   );
 };
 
 export default Control;
+
+
+
+
+

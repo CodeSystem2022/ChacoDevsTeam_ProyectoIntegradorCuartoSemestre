@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+
 const Pagos = () => {
   const history = useHistory();
 
@@ -39,7 +40,7 @@ const Pagos = () => {
       } else {
         setMensaje('Error en los datos de la tarjeta. Por favor, inténtalo de nuevo.');
       }
-    } else if (opcionPago === 'domicilio') {
+    } else if (opcionPago === 'efectivo') {
       setMensaje('Compra confirmada!');
       setTimeout(() => {
         window.alert('Compra confirmada. Te enviaremos los detalles por email. ¡Gracias por tu compra!');
@@ -63,13 +64,13 @@ const Pagos = () => {
           <div>
             <input
               type="radio"
-              id="domicilio"
+              id="efectivo"
               name="pago"
-              value="domicilio"
-              checked={opcionPago === 'Efectivo'}
+              value="efectivo"
+              checked={opcionPago === 'efectivo'}
               onChange={handleOptionChange}
             />
-            <label htmlFor="domicilio">Pago en Domicilio</label>
+            <label htmlFor="domicilio">Efectivo</label>
           </div>
           <div>
             <input
@@ -94,7 +95,6 @@ const Pagos = () => {
             <label htmlFor="mercadopago">MercadoPago</label>
           </div>
         </div>
-
 
         {opcionPago === 'tarjeta' && (
           <div>
@@ -162,6 +162,13 @@ const Pagos = () => {
             </div>
           </div>
         )}
+
+        {opcionPago === 'mercadopago' && (
+          <div>
+            <img src="qr.png"alt="Código QR" style={{ maxWidth: '100%' }} />
+          </div>
+        )}
+
         <button type="button" onClick={handlePagar}>
           Pagar
         </button>

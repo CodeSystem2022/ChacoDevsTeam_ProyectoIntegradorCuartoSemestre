@@ -38,7 +38,7 @@ const Carrito = () => {
       canal = 'MERCADO_PAGO';
     } else if (opcionPago === 'tarjeta') {
       canal = 'TARJETA_CREDITO';
-    } else if (opcionPago === 'transferencia') {
+    } else if (opcionPago === 'efectivo') {
       canal = 'EFECTIVO';
     }
     
@@ -94,13 +94,13 @@ const Carrito = () => {
         <div>
           <input
             type="radio"
-            id="transferencia"
+            id="efectivo"
             name="opcionPago"
-            value="transferencia"
-            checked={opcionPago === 'transferencia'}
+            value="efectivo"
+            checked={opcionPago === 'efectivo'}
             onChange={handleOpcionPagoChange}
           />
-          <label htmlFor="transferencia">Transferencia</label>
+          <label htmlFor="transferencia">Efectivo</label>
         </div>
       </div>
 
